@@ -8,7 +8,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>680,1542</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>680,1718</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Generate_ItemCSV_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -93,7 +93,7 @@
       <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Generate_ItemCSV" sap:VirtualizedContainerService.HintSize="588,1477" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Generate_ItemCSV" sap:VirtualizedContainerService.HintSize="588,1653" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="IsNumeric" />
     </Sequence.Variables>
@@ -104,13 +104,13 @@
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="526,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Generating line item CSV&quot;]" />
     <ui:ClearDataTable DataTable="[io_dt_ItemCSV]" DisplayName="Clear Data Table" sap:VirtualizedContainerService.HintSize="526,80" sap2010:WorkflowViewState.IdRef="ClearDataTable_1" />
-    <ui:ForEach x:TypeArguments="sd:DataRow" CurrentIndex="{x:Null}" DisplayName="For Each Duplicate Row for Item" sap:VirtualizedContainerService.HintSize="526,1065" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[in_arrDuplicaeDataRow]">
+    <ui:ForEach x:TypeArguments="sd:DataRow" CurrentIndex="{x:Null}" DisplayName="For Each Duplicate Row for Item" sap:VirtualizedContainerService.HintSize="526,1241" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[in_arrDuplicaeDataRow]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="currentItem" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="492,879" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="492,1055" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Double" Name="InvoicedAmount" />
               <Variable x:TypeArguments="x:Double" Name="InvoicedQty" />
@@ -118,13 +118,36 @@
               <Variable x:TypeArguments="x:Double" Name="DeliveredQty" />
               <Variable x:TypeArguments="x:String" Name="CodingBlock" />
               <Variable x:TypeArguments="x:String" Name="FirstCharacter" />
+              <Variable x:TypeArguments="x:String" Name="ExcelDate" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign DisplayName="Invoiced Amount" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="450,132" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+              <ui:MultipleAssign.AssignOperations>
+                <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[ExcelDate]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[in_TransactionItem("Doc.Date").ToString]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                  <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                    <ui:AssignOperation.To>
+                      <OutArgument x:TypeArguments="x:String">[ExcelDate]</OutArgument>
+                    </ui:AssignOperation.To>
+                    <ui:AssignOperation.Value>
+                      <InArgument x:TypeArguments="x:String">[Convert.ToDateTime(ExcelDate).ToString("yyyy-MM-dd")]</InArgument>
+                    </ui:AssignOperation.Value>
+                  </ui:AssignOperation>
+                </scg:List>
+              </ui:MultipleAssign.AssignOperations>
+            </ui:MultipleAssign>
+            <Assign DisplayName="Invoiced Amount" sap:VirtualizedContainerService.HintSize="450,82" sap2010:WorkflowViewState.IdRef="Assign_1">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:Double">[InvoicedAmount]</OutArgument>
               </Assign.To>
@@ -132,7 +155,7 @@
                 <InArgument x:TypeArguments="x:Double">[Convert.ToDouble(currentItem("Total Before GST").ToString)-Convert.ToDouble(currentItem("To be inv.(value)").ToString)]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Invoiced Quantity" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Assign_2">
+            <Assign DisplayName="Invoiced Quantity" sap:VirtualizedContainerService.HintSize="450,82" sap2010:WorkflowViewState.IdRef="Assign_2">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:Double">[InvoicedQty]</OutArgument>
               </Assign.To>
@@ -140,7 +163,7 @@
                 <InArgument x:TypeArguments="x:Double">[Convert.ToDouble(currentItem("Quantity").ToString)- Convert.ToDouble(currentItem("To be inv.(qty)").ToString)]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Delvered Amount" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Assign_3">
+            <Assign DisplayName="Delvered Amount" sap:VirtualizedContainerService.HintSize="450,82" sap2010:WorkflowViewState.IdRef="Assign_3">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:Double">[DeliveredAmount]</OutArgument>
               </Assign.To>
@@ -148,7 +171,7 @@
                 <InArgument x:TypeArguments="x:Double">[Convert.ToDouble(currentItem("Total Before GST").ToString)-Convert.ToDouble(currentItem("To be del.(value)").ToString)]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign DisplayName="Delivered Quatity" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Assign_4">
+            <Assign DisplayName="Delivered Quatity" sap:VirtualizedContainerService.HintSize="450,82" sap2010:WorkflowViewState.IdRef="Assign_4">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:Double">[DeliveredQty]</OutArgument>
               </Assign.To>
@@ -220,7 +243,7 @@
                 </If.Else>
               </If>
             </Sequence>
-            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{in_TransactionItem(&quot;Plant&quot;).ToString,in_TransactionItem(&quot;Vendor Number&quot;).ToString,in_TransactionItem(&quot;Purchasing Document Number&quot;).ToString,in_TransactionItem(&quot;Doc.Date&quot;).ToString,currentItem(&quot;Item&quot;).ToString,&quot;&quot;,&quot;QuantityBased&quot;,currentItem(&quot;Short Text&quot;).ToString,currentItem(&quot;GL Account&quot;).ToString,&quot;&quot;,currentItem(&quot;Cost Center&quot;).ToString,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,currentItem(&quot;Budget&quot;).ToString,currentItem(&quot;Unit Price&quot;).ToString,currentItem(&quot;Total Before GST&quot;).ToString,currentItem(&quot;Oun&quot;).ToString,currentItem(&quot;Quantity&quot;).ToString,InvoicedAmount.ToString,InvoicedQty.ToString,DeliveredAmount.ToString,DeliveredQty.ToString,currentItem(&quot;Crcy&quot;).ToString,currentItem(&quot;Tax Code&quot;).ToString,&quot;&quot;,currentItem(&quot;User&quot;).ToString,&quot;&quot;,&quot;No&quot;,&quot;Yes&quot;,&quot;&quot;,in_BillingComplted,&quot;No&quot;,currentItem(&quot;Vehicle Number&quot;).ToString,CodingBlock}]" DataTable="[io_dt_ItemCSV]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="450,186" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{in_TransactionItem(&quot;Plant&quot;).ToString,in_TransactionItem(&quot;Vendor Number&quot;).ToString,in_TransactionItem(&quot;Purchasing Document Number&quot;).ToString,&quot;'&quot;+ExcelDate,currentItem(&quot;Item&quot;).ToString,&quot;&quot;,&quot;QuantityBased&quot;,currentItem(&quot;Short Text&quot;).ToString,currentItem(&quot;GL Account&quot;).ToString,&quot;&quot;,currentItem(&quot;Cost Center&quot;).ToString,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,currentItem(&quot;Budget&quot;).ToString,currentItem(&quot;Unit Price&quot;).ToString,currentItem(&quot;Total Before GST&quot;).ToString,currentItem(&quot;Oun&quot;).ToString,currentItem(&quot;Quantity&quot;).ToString,InvoicedAmount.ToString,InvoicedQty.ToString,DeliveredAmount.ToString,DeliveredQty.ToString,currentItem(&quot;Crcy&quot;).ToString,currentItem(&quot;Tax Code&quot;).ToString,&quot;&quot;,currentItem(&quot;User&quot;).ToString,&quot;&quot;,&quot;No&quot;,&quot;Yes&quot;,&quot;&quot;,in_BillingComplted,&quot;No&quot;,currentItem(&quot;Vehicle Number&quot;).ToString,CodingBlock}]" DataTable="[io_dt_ItemCSV]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="450,186" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
           </Sequence>
         </ActivityAction>
       </ui:ForEach.Body>
