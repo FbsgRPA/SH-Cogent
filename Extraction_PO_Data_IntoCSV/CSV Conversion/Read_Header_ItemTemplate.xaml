@@ -1,14 +1,16 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Read_Header_ItemTemplate" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Read_Header_ItemTemplate" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_FilePath" Type="InArgument(x:String)" />
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
     <x:Property Name="out_dt_HeaderCSV" Type="OutArgument(sd:DataTable)" />
     <x:Property Name="out_dt_ItemCSV" Type="OutArgument(sd:DataTable)" />
+    <x:Property Name="out_HeaderFilePath" Type="OutArgument(x:String)" />
+    <x:Property Name="out_ItemFilePath" Type="OutArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>680,875</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>548,2790</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Read_Header_ItemTemplate_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -96,25 +98,66 @@
       <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Read_Header_ItemTemplate" sap:VirtualizedContainerService.HintSize="512,810" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Read_Header_ItemTemplate" sap:VirtualizedContainerService.HintSize="558,2725" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:String" Name="HeaderFilePath" />
-      <Variable x:TypeArguments="x:String" Name="ItemFilePath" />
       <Variable x:TypeArguments="x:String" Name="HeadTempPath" />
       <Variable x:TypeArguments="x:String" Name="ItemTempPath" />
+      <Variable x:TypeArguments="s:String[]" Name="ArrOutputFiles" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Reading header &amp; Item Template&quot;]" />
-    <Sequence DisplayName="Creat files fom template" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="496,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Reading header &amp; Item Template&quot;]" />
+    <Sequence DisplayName="Delete old files" sap:VirtualizedContainerService.HintSize="496,81" sap2010:WorkflowViewState.IdRef="Sequence_6">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_5">
+        <Assign.To>
+          <OutArgument x:TypeArguments="s:String[]">[ArrOutputFiles]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(in_Config("OutputFolder").ToString)]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each File in Output folder" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[ArrOutputFiles]">
+        <ui:ForEach.Body>
+          <ActivityAction x:TypeArguments="x:String">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:String" Name="currentItem" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,168" sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:DeleteFileX DisplayName="Delete File" sap:VirtualizedContainerService.HintSize="334,80" sap2010:WorkflowViewState.IdRef="DeleteFileX_1" Path="[currentItem]" />
+            </Sequence>
+          </ActivityAction>
+        </ui:ForEach.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:ForEach>
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Deleted old files&quot;]" />
+    </Sequence>
+    <Sequence DisplayName="Creat files fom template" sap:VirtualizedContainerService.HintSize="496,1489" sap2010:WorkflowViewState.IdRef="Sequence_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -134,30 +177,74 @@
           <InArgument x:TypeArguments="x:String">[Path.Combine(Environment.CurrentDirectory,in_Config("ItemTemplate").ToString)]</InArgument>
         </Assign.Value>
       </Assign>
-      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Header Template Path: &quot;+HeaderFilePath+Environment.NewLine+&quot;Item Template Path: &quot;+ItemTempPath]" />
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Header Template Path: &quot;+HeadTempPath+Environment.NewLine+&quot;Item Template Path: &quot;+ItemTempPath]" />
       <Assign DisplayName="Header file Path" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_1">
         <Assign.To>
-          <OutArgument x:TypeArguments="x:String">[HeaderFilePath]</OutArgument>
+          <OutArgument x:TypeArguments="x:String">[out_HeaderFilePath]</OutArgument>
         </Assign.To>
         <Assign.Value>
           <InArgument x:TypeArguments="x:String">[path.Combine(in_FilePath,in_Config("HeaderFileName").ToString+DateTime.Now.ToString("yyyyMMdd_HHmmss")+".csv")]</InArgument>
         </Assign.Value>
       </Assign>
-      <ui:CopyFile ContinueOnError="{x:Null}" Destination="[HeaderFilePath]" DisplayName="Copy header file" sap:VirtualizedContainerService.HintSize="434,154" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="[HeadTempPath]" />
-      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Header File created. &quot;+HeaderFilePath]" />
-      <Assign DisplayName="Item file Path" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_4">
+      <ui:CopyFile ContinueOnError="{x:Null}" Destination="[out_HeaderFilePath]" DisplayName="Copy header file" sap:VirtualizedContainerService.HintSize="434,154" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="[HeadTempPath]" />
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Header File created. &quot;+out_HeaderFilePath]" />
+      <Assign DisplayName="Item file Path" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_4">
         <Assign.To>
-          <OutArgument x:TypeArguments="x:String">[ItemFilePath]</OutArgument>
+          <OutArgument x:TypeArguments="x:String">[out_ItemFilePath]</OutArgument>
         </Assign.To>
         <Assign.Value>
           <InArgument x:TypeArguments="x:String">[path.Combine(in_FilePath,in_Config("ItemFileName").ToString+DateTime.Now.ToString("yyyyMMdd_HHmmss")+".csv")]</InArgument>
         </Assign.Value>
       </Assign>
-      <ui:CopyFile ContinueOnError="{x:Null}" Destination="[ItemFilePath]" DisplayName="Copy Item file" sap:VirtualizedContainerService.HintSize="434,154" sap2010:WorkflowViewState.IdRef="CopyFile_2" Overwrite="True" Path="[ItemTempPath]" />
-      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Item File Created.  &quot;+ItemFilePath]" />
+      <ui:CopyFile ContinueOnError="{x:Null}" Destination="[out_ItemFilePath]" DisplayName="Copy Item file" sap:VirtualizedContainerService.HintSize="434,154" sap2010:WorkflowViewState.IdRef="CopyFile_2" Overwrite="True" Path="[ItemTempPath]" />
+      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Item File Created.  &quot;+out_ItemFilePath]" />
     </Sequence>
-    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[out_dt_HeaderCSV]" DisplayName="Read Header file" sap:VirtualizedContainerService.HintSize="450,88" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="Sheet1" WorkbookPath="[HeaderFilePath]" />
-    <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[out_dt_ItemCSV]" DisplayName="Read Item File" sap:VirtualizedContainerService.HintSize="450,88" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="Sheet1" WorkbookPath="[ItemFilePath]" />
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="450,141" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Header File read succesully&quot;]" />
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Read Header CSV" sap:VirtualizedContainerService.HintSize="496,281" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Visible="False" WorkbookPath="[out_HeaderFilePath]">
+      <ui:ExcelApplicationScope.Body>
+        <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,171" sap2010:WorkflowViewState.IdRef="Sequence_3">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ExcelReadRange AddHeaders="True" DataTable="[out_dt_HeaderCSV]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="388,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="Sheet1">
+              <ui:ExcelReadRange.Range>
+                <InArgument x:TypeArguments="x:String">
+                  <Literal x:TypeArguments="x:String" Value="" />
+                </InArgument>
+              </ui:ExcelReadRange.Range>
+            </ui:ExcelReadRange>
+          </Sequence>
+        </ActivityAction>
+      </ui:ExcelApplicationScope.Body>
+    </ui:ExcelApplicationScope>
+    <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Read Item File" sap:VirtualizedContainerService.HintSize="496,281" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" InstanceCachePeriod="3000" Visible="False" WorkbookPath="[out_ItemFilePath]">
+      <ui:ExcelApplicationScope.Body>
+        <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,171" sap2010:WorkflowViewState.IdRef="Sequence_4">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <ui:ExcelReadRange AddHeaders="True" DataTable="[out_dt_ItemCSV]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="388,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_2" SheetName="Sheet1">
+              <ui:ExcelReadRange.Range>
+                <InArgument x:TypeArguments="x:String">
+                  <Literal x:TypeArguments="x:String" Value="" />
+                </InArgument>
+              </ui:ExcelReadRange.Range>
+            </ui:ExcelReadRange>
+          </Sequence>
+        </ActivityAction>
+      </ui:ExcelApplicationScope.Body>
+    </ui:ExcelApplicationScope>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="496,141" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Header File read succesully&quot;]" />
   </Sequence>
 </Activity>

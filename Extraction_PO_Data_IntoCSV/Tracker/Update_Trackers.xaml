@@ -2,7 +2,6 @@
   <x:Members>
     <x:Property Name="in_dt_StatusTracker" Type="InArgument(sd:DataTable)" />
     <x:Property Name="in_StatusTrackerPath" Type="InArgument(x:String)" />
-    <x:Property Name="in_TempTrackerPath" Type="InArgument(x:String)" />
     <x:Property Name="in_TransactionItem" Type="InArgument(sd:DataRow)" />
     <x:Property Name="in_ArrDuplicateRows" Type="InArgument(sd:DataRow[])" />
     <x:Property Name="in_dt_TempTracker" Type="InArgument(sd:DataTable)" />
@@ -11,7 +10,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>771.333333333333,1204</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>462,1274</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Update_Trackers_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -44,6 +43,8 @@
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>UiPath.Excel</x:String>
       <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -89,27 +90,27 @@
       <AssemblyReference>WindowsBase</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Update_Trackers" sap:VirtualizedContainerService.HintSize="476,1139.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Update_Trackers" sap:VirtualizedContainerService.HintSize="472,1209" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message - Update_Trackers workflow Started" sap:VirtualizedContainerService.HintSize="434,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Update_Trackers workflow Started&quot;]" />
-    <ui:ClearDataTable DataTable="[in_dt_StatusTracker]" DisplayName="Clear Data Table to append" sap:VirtualizedContainerService.HintSize="434,80.6666666666667" sap2010:WorkflowViewState.IdRef="ClearDataTable_1" />
-    <ui:ForEach x:TypeArguments="sd:DataRow" CurrentIndex="{x:Null}" DisplayName="For Each - Arr Duplicate Rows" sap:VirtualizedContainerService.HintSize="434,410" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[in_ArrDuplicateRows]">
+    <ui:LogMessage DisplayName="Log Message - Update_Trackers workflow Started" sap:VirtualizedContainerService.HintSize="410,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Update_Trackers workflow Started&quot;]" />
+    <ui:ClearDataTable DataTable="[in_dt_StatusTracker]" DisplayName="Clear Data Table to append" sap:VirtualizedContainerService.HintSize="410,80" sap2010:WorkflowViewState.IdRef="ClearDataTable_1" />
+    <ui:ForEach x:TypeArguments="sd:DataRow" CurrentIndex="{x:Null}" DisplayName="For Each - Arr Duplicate Rows" sap:VirtualizedContainerService.HintSize="410,460" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[in_ArrDuplicateRows]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="item" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,282" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,274" sap2010:WorkflowViewState.IdRef="Sequence_4">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[item.ItemArray]" DataTable="[in_dt_StatusTracker]" DisplayName="Add Data Row - Array" sap:VirtualizedContainerService.HintSize="334,190" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
+            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[item.ItemArray]" DataTable="[in_dt_StatusTracker]" DisplayName="Add Data Row - Array" sap:VirtualizedContainerService.HintSize="334,186" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
           </Sequence>
         </ActivityAction>
       </ui:ForEach.Body>
@@ -120,25 +121,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
-    <ui:AppendRange DataTable="[in_dt_StatusTracker]" DisplayName="Append Range - Status Tracker" sap:VirtualizedContainerService.HintSize="434,114.666666666667" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="[in_Config(&quot;StatusTrackerSheetName&quot;).ToString]" WorkbookPath="[in_StatusTrackerPath]" />
-    <ui:CommentOut DisplayName="Comment Out - (For BOT only)" sap:VirtualizedContainerService.HintSize="434,52.6666666666667" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-      <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,206.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_5">
-          <sap:WorkflowViewStateService.ViewState>
-            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-            </scg:Dictionary>
-          </sap:WorkflowViewStateService.ViewState>
-          <ui:AppendRange DataTable="[in_dt_TempTracker]" DisplayName="Append Range - Temp Tracker" sap:VirtualizedContainerService.HintSize="334,114.666666666667" sap2010:WorkflowViewState.IdRef="AppendRange_2" SheetName="[in_Config(&quot;TempTrackerSheetName&quot;).ToString]" WorkbookPath="[in_TempTrackerPath]" />
-        </Sequence>
-      </ui:CommentOut.Body>
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </ui:CommentOut>
-    <ui:LogMessage DisplayName="Log Message - Update_Trackers workflow Ended" sap:VirtualizedContainerService.HintSize="434,94.6666666666667" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Update_Trackers workflow Ended&quot;]" />
+    <ui:AppendRange DataTable="[in_dt_StatusTracker]" DisplayName="Append Range - Status Tracker" sap:VirtualizedContainerService.HintSize="410,116" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="Sheet1" WorkbookPath="[in_StatusTrackerPath]" />
+    <ui:LogMessage DisplayName="Log Message - Update_Trackers workflow Ended" sap:VirtualizedContainerService.HintSize="410,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Update_Trackers workflow Ended&quot;]" />
   </Sequence>
 </Activity>

@@ -7,11 +7,13 @@
     <x:Property Name="out_dt_TempTracker" Type="OutArgument(sd:DataTable)" />
     <x:Property Name="out_dt_HeaderCSV" Type="OutArgument(sd:DataTable)" />
     <x:Property Name="out_dt_ItemCSV" Type="OutArgument(sd:DataTable)" />
+    <x:Property Name="out_HeaderFilePath" Type="OutArgument(x:String)" />
+    <x:Property Name="out_ItemFilePath" Type="OutArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>440,1164</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>680,1124</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Initialization_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -116,19 +118,6 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log message (Initialize applications)" sap:VirtualizedContainerService.HintSize="388,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Trace" Message="[&quot;Opening applications...&quot;]" />
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Tracker\Read_Tracker.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Tracker\Read_Tracker.xaml">
-      <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-          <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-        </InArgument>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_StatusTracker">
-          <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="out_dt_StatusTracker" />
-        </OutArgument>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_TempTracker">
-          <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="out_dt_TempTracker" />
-        </OutArgument>
-      </ui:InvokeWorkflowFile.Arguments>
-    </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="CSV Conversion\Read_Header_ItemTemplate.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="CSV Conversion\Read_Header_ItemTemplate.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_FilePath">
@@ -143,6 +132,19 @@
         <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_ItemCSV">
           <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="out_dt_ItemCSV" />
         </OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_HeaderFilePath">
+          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_HeaderFilePath" />
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_ItemFilePath">
+          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_ItemFilePath" />
+        </OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Tracker\Read_Tracker.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Tracker\Read_Tracker.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_StatusTracker">[out_dt_StatusTracker]</OutArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_TempTracker">[out_dt_TempTracker]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SAP Login\SAP_Login.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="SAP Login\SAP_Login.xaml">
