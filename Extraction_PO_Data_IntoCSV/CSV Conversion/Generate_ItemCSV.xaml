@@ -91,6 +91,7 @@
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
       <AssemblyReference>System.Collections</AssemblyReference>
       <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="Generate_ItemCSV" sap:VirtualizedContainerService.HintSize="588,1653" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -243,7 +244,7 @@
                 </If.Else>
               </If>
             </Sequence>
-            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{in_TransactionItem(&quot;Plant&quot;).ToString,in_TransactionItem(&quot;Vendor Number&quot;).ToString,in_TransactionItem(&quot;Purchasing Document Number&quot;).ToString,&quot;'&quot;+ExcelDate,currentItem(&quot;Item&quot;).ToString,&quot;&quot;,&quot;QuantityBased&quot;,currentItem(&quot;Short Text&quot;).ToString,currentItem(&quot;GL Account&quot;).ToString,&quot;&quot;,currentItem(&quot;Cost Center&quot;).ToString,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,currentItem(&quot;Budget&quot;).ToString,currentItem(&quot;Unit Price&quot;).ToString,currentItem(&quot;Total Before GST&quot;).ToString,currentItem(&quot;Oun&quot;).ToString,currentItem(&quot;Quantity&quot;).ToString,InvoicedAmount.ToString,InvoicedQty.ToString,DeliveredAmount.ToString,DeliveredQty.ToString,currentItem(&quot;Crcy&quot;).ToString,currentItem(&quot;Tax Code&quot;).ToString,&quot;&quot;,currentItem(&quot;User&quot;).ToString,&quot;&quot;,&quot;No&quot;,&quot;Yes&quot;,&quot;&quot;,in_BillingComplted,&quot;No&quot;,currentItem(&quot;Vehicle Number&quot;).ToString,CodingBlock}]" DataTable="[io_dt_ItemCSV]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="450,186" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{in_TransactionItem(&quot;Plant&quot;).ToString,in_TransactionItem(&quot;Vendor Number&quot;).ToString,in_TransactionItem(&quot;Purchasing Document Number&quot;).ToString,ExcelDate,currentItem(&quot;Item&quot;).ToString,&quot;&quot;,&quot;QuantityBased&quot;,currentItem(&quot;Short Text&quot;).ToString,currentItem(&quot;GL Account&quot;).ToString,&quot;&quot;,currentItem(&quot;Cost Center&quot;).ToString,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,currentItem(&quot;Budget&quot;).ToString,currentItem(&quot;Unit Price&quot;).ToString,currentItem(&quot;Total Before GST&quot;).ToString,currentItem(&quot;Oun&quot;).ToString,currentItem(&quot;Quantity&quot;).ToString,InvoicedAmount.ToString,InvoicedQty.ToString,DeliveredAmount.ToString,DeliveredQty.ToString,currentItem(&quot;Crcy&quot;).ToString,currentItem(&quot;Tax Code&quot;).ToString,&quot;&quot;,currentItem(&quot;User&quot;).ToString,&quot;&quot;,&quot;No&quot;,&quot;Yes&quot;,&quot;&quot;,in_BillingComplted,&quot;No&quot;,currentItem(&quot;Vehicle Number&quot;).ToString,CodingBlock}]" DataTable="[io_dt_ItemCSV]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="450,186" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
           </Sequence>
         </ActivityAction>
       </ui:ForEach.Body>

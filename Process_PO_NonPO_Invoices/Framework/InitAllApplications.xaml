@@ -119,18 +119,37 @@
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="DownloadXMLFile_FromSFTPToLocal.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="410,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="XML Processing\DownloadXMLFile_FromSFTPToLocal.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_HostName">[in_Config("SFTP_Host").ToString]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_Port">[in_Config("SFTP_Port").ToString]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_SftpOutFoldPath">[in_Config("SFTPPathOut").ToString]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_ExcpSftpFoldMissing">[in_Config("SFTPFolderMissing").ToString]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_DonalodXmlLocalPath">[in_Config("DownloadXmlLocalPath").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_HostName">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SFTP_Host&quot;).ToString" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Port">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SFTP_Port&quot;).ToString" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_SftpOutFoldPath">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SFTPPathOut&quot;).ToString" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_ExcpSftpFoldMissing">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SFTPFolderMissing&quot;).ToString" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_DonalodXmlLocalPath">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;DownloadXmlLocalPath&quot;).ToString" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_LocalOutFold">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;InputXmlLocalPath&quot;).ToString" />
+        </InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="XML Processing\Read_XML_Files.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="410,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="XML Processing\Read_XML_Files.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="Out_dt_TransactionData">[Out_dt_TransactionData]</OutArgument>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_POData">[out_dt_POData]</OutArgument>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+          <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+        </InArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="Out_dt_TransactionData">
+          <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="Out_dt_TransactionData" />
+        </OutArgument>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dt_POData">
+          <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="out_dt_POData" />
+        </InOutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <If Condition="[Out_dt_TransactionData.RowCount&gt;0]" DisplayName="If Transaction data has Value" sap:VirtualizedContainerService.HintSize="410,921" sap2010:WorkflowViewState.IdRef="If_1">
