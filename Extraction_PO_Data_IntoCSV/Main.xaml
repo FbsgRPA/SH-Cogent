@@ -113,6 +113,7 @@
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
       <AssemblyReference>WindowsBase</AssemblyReference>
       <AssemblyReference>WindowsFormsIntegration</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <StateMachine InitialState="{x:Reference __ReferenceID3}" sap2010:Annotation.AnnotationText="[Process title]&#xA;[Process description]&#xA;[Additional information (e.g., author, contact information and applications involved and required external setup)]" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="703,799" sap2010:WorkflowViewState.IdRef="StateMachine_1">
@@ -239,7 +240,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
           <Transition.To>
-            <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="Process a single transaction. &#xA;The result of the processing can be: 1) Success, 2) Business Exception, 3) System Exception. &#xA;In the case of a system exception, the transaction can be automatically retried." DisplayName="Process Transaction" sap:VirtualizedContainerService.HintSize="584,2072" sap2010:WorkflowViewState.IdRef="State_3">
+            <State x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="Process a single transaction. &#xA;The result of the processing can be: 1) Success, 2) Business Exception, 3) System Exception. &#xA;In the case of a system exception, the transaction can be automatically retried." DisplayName="Process Transaction" sap:VirtualizedContainerService.HintSize="231,188" sap2010:WorkflowViewState.IdRef="State_3">
               <State.Entry>
                 <TryCatch DisplayName="Try to process transaction" sap:VirtualizedContainerService.HintSize="538,1600" sap2010:WorkflowViewState.IdRef="TryCatch_9">
                   <sap:WorkflowViewStateService.ViewState>
@@ -687,15 +688,36 @@
                               </If>
                               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke InitiAllApplications workflow" sap:VirtualizedContainerService.HintSize="450,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="Framework\InitAllApplications.xaml">
                                 <ui:InvokeWorkflowFile.Arguments>
-                                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
-                                  <OutArgument x:TypeArguments="ui:Window" x:Key="out_SAPWindow">[SapWindow]</OutArgument>
-                                  <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_MasterData">[dt_TransactionData]</OutArgument>
-                                  <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_StatusTracker">[dt_StatusTracker]</OutArgument>
-                                  <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_TempTracker">[dt_TempTracker]</OutArgument>
-                                  <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_HeaderCSV">[dt_HeaderCSV]</OutArgument>
-                                  <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_ItemCSV">[dt_ItemCSV]</OutArgument>
-                                  <OutArgument x:TypeArguments="x:String" x:Key="out_HeaderFilePath">[HeaderFilePath]</OutArgument>
-                                  <OutArgument x:TypeArguments="x:String" x:Key="out_ItemFilePath">[ItemFilePath]</OutArgument>
+                                  <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+                                    <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
+                                  </InArgument>
+                                  <OutArgument x:TypeArguments="ui:Window" x:Key="out_SAPWindow">
+                                    <VisualBasicReference x:TypeArguments="ui:Window" ExpressionText="SapWindow" />
+                                  </OutArgument>
+                                  <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_MasterData">
+                                    <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_TransactionData" />
+                                  </OutArgument>
+                                  <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_StatusTracker">
+                                    <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_StatusTracker" />
+                                  </OutArgument>
+                                  <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_TempTracker">
+                                    <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_TempTracker" />
+                                  </OutArgument>
+                                  <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_HeaderCSV">
+                                    <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_HeaderCSV" />
+                                  </OutArgument>
+                                  <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_ItemCSV">
+                                    <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_ItemCSV" />
+                                  </OutArgument>
+                                  <OutArgument x:TypeArguments="x:String" x:Key="out_HeaderFilePath">
+                                    <VisualBasicReference x:TypeArguments="x:String" ExpressionText="HeaderFilePath" />
+                                  </OutArgument>
+                                  <OutArgument x:TypeArguments="x:String" x:Key="out_ItemFilePath">
+                                    <VisualBasicReference x:TypeArguments="x:String" ExpressionText="ItemFilePath" />
+                                  </OutArgument>
+                                  <OutArgument x:TypeArguments="x:String" x:Key="out_StatusTrackerPath">
+                                    <VisualBasicReference x:TypeArguments="x:String" ExpressionText="StatusTrackerPath" />
+                                  </OutArgument>
                                 </ui:InvokeWorkflowFile.Arguments>
                               </ui:InvokeWorkflowFile>
                               <Sequence DisplayName="Add Column to Transaction Data" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_37">
@@ -779,9 +801,9 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <Transition.To>
-                            <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="End process and close all applications used." DisplayName="End Process" sap:VirtualizedContainerService.HintSize="632,750" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
+                            <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="End process and close all applications used." DisplayName="End Process" sap:VirtualizedContainerService.HintSize="632,903" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
                               <State.Entry>
-                                <TryCatch DisplayName="Try to close all aplications" sap:VirtualizedContainerService.HintSize="586,605" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+                                <TryCatch DisplayName="Try to close all aplications" sap:VirtualizedContainerService.HintSize="586,758" sap2010:WorkflowViewState.IdRef="TryCatch_4">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -789,7 +811,7 @@
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                   <TryCatch.Try>
-                                    <Sequence sap:VirtualizedContainerService.HintSize="450,377" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                                    <Sequence sap:VirtualizedContainerService.HintSize="450,530" sap2010:WorkflowViewState.IdRef="Sequence_38">
                                       <Sequence.Variables>
                                         <Variable x:TypeArguments="sd:DataTable" Name="dt_HeaderXLdata" />
                                       </Sequence.Variables>
@@ -801,10 +823,10 @@
                                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SFTP\Post_FilesToSFTP.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_31" UnSafe="False" WorkflowFileName="SFTP\Post_FilesToSFTP.xaml">
                                         <ui:InvokeWorkflowFile.Arguments>
                                           <InArgument x:TypeArguments="x:String" x:Key="in_HostName">
-                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;Host&quot;).ToString" />
+                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;SFTP_Host&quot;).ToString" />
                                           </InArgument>
                                           <InArgument x:TypeArguments="x:String" x:Key="in_Port">
-                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;Port&quot;).ToString" />
+                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;SFTP_Port&quot;).ToString" />
                                           </InArgument>
                                           <InArgument x:TypeArguments="x:String" x:Key="in_ExcpSftpFoldMissing">
                                             <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;ExcpMsg_MasterDataFoldMissing&quot;).ToString" />
@@ -814,6 +836,25 @@
                                           </InArgument>
                                           <InArgument x:TypeArguments="s:String[]" x:Key="in_CSVFilePaths">
                                             <VisualBasicValue x:TypeArguments="s:String[]" ExpressionText="{}{HeaderFilePath,ItemFilePath}" />
+                                          </InArgument>
+                                        </ui:InvokeWorkflowFile.Arguments>
+                                      </ui:InvokeWorkflowFile>
+                                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Send_EmailNotification.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_32" UnSafe="False" WorkflowFileName="Email\Send_EmailNotification.xaml">
+                                        <ui:InvokeWorkflowFile.Arguments>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_RecipientsEmailList">
+                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;EmailTo&quot;).ToString" />
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_CcEmailList">
+                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="Config(&quot;EmailCC&quot;).ToString" />
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="s:Exception" x:Key="in_SystemException">
+                                            <VisualBasicValue x:TypeArguments="s:Exception" ExpressionText="SystemException" />
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+                                            <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
+                                          </InArgument>
+                                          <InArgument x:TypeArguments="x:String" x:Key="in_StatusTrackerPath">
+                                            <VisualBasicValue x:TypeArguments="x:String" ExpressionText="StatusTrackerPath" />
                                           </InArgument>
                                         </ui:InvokeWorkflowFile.Arguments>
                                       </ui:InvokeWorkflowFile>
@@ -963,6 +1004,7 @@
       <Variable x:TypeArguments="x:String" Name="HeaderFilePath" />
       <Variable x:TypeArguments="x:String" Name="ItemFilePath" />
       <Variable x:TypeArguments="x:Boolean" Name="IsTransactionToProcess" />
+      <Variable x:TypeArguments="x:String" Name="StatusTrackerPath" />
     </StateMachine.Variables>
   </StateMachine>
 </Activity>

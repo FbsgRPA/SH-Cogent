@@ -6,6 +6,8 @@
     <x:Property Name="out_dt_POData" Type="OutArgument(sd:DataTable)" />
     <x:Property Name="out_SAPWindow" Type="OutArgument(ui:Window)" />
     <x:Property Name="out_dt_TaxCode" Type="OutArgument(sd:DataTable)" />
+    <x:Property Name="out_dt_PoStatusTracker" Type="OutArgument(sd:DataTable)" />
+    <x:Property Name="out_dt_NonPOStatusTracker" Type="OutArgument(sd:DataTable)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
@@ -115,6 +117,8 @@
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
         <OutArgument x:TypeArguments="x:String" x:Key="out_StatusTrackerPath">[out_StatusTrackerPath]</OutArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_PoStatusTracker">[out_dt_PoStatusTracker]</OutArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_NonPOStatusTracker">[out_dt_NonPOStatusTracker]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="DownloadXMLFile_FromSFTPToLocal.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="410,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="XML Processing\DownloadXMLFile_FromSFTPToLocal.xaml">
@@ -137,19 +141,19 @@
         <InArgument x:TypeArguments="x:String" x:Key="in_LocalOutFold">
           <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;InputXmlLocalPath&quot;).ToString" />
         </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_ArchivalPath">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;XMLArchivalFolder&quot;).ToString" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_ExcpNoXML">
+          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;ExcpMsg_NoXMLFound&quot;).ToString" />
+        </InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="XML Processing\Read_XML_Files.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="410,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="XML Processing\Read_XML_Files.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-          <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
-        </InArgument>
-        <OutArgument x:TypeArguments="sd:DataTable" x:Key="Out_dt_TransactionData">
-          <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="Out_dt_TransactionData" />
-        </OutArgument>
-        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dt_POData">
-          <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="out_dt_POData" />
-        </InOutArgument>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="Out_dt_TransactionData">[Out_dt_TransactionData]</OutArgument>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_dt_POData">[out_dt_POData]</InOutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <If Condition="[Out_dt_TransactionData.RowCount&gt;0]" DisplayName="If Transaction data has Value" sap:VirtualizedContainerService.HintSize="410,921" sap2010:WorkflowViewState.IdRef="If_1">
