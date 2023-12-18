@@ -8,7 +8,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>680,1718</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>578,1598</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Generate_ItemCSV_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -92,9 +92,10 @@
       <AssemblyReference>System.Collections</AssemblyReference>
       <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Generate_ItemCSV" sap:VirtualizedContainerService.HintSize="588,1653" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Generate_ItemCSV" sap:VirtualizedContainerService.HintSize="588,1533" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="IsNumeric" />
     </Sequence.Variables>
@@ -104,7 +105,6 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="526,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Generating line item CSV&quot;]" />
-    <ui:ClearDataTable DataTable="[io_dt_ItemCSV]" DisplayName="Clear Data Table" sap:VirtualizedContainerService.HintSize="526,80" sap2010:WorkflowViewState.IdRef="ClearDataTable_1" />
     <ui:ForEach x:TypeArguments="sd:DataRow" CurrentIndex="{x:Null}" DisplayName="For Each Duplicate Row for Item" sap:VirtualizedContainerService.HintSize="526,1241" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[in_arrDuplicaeDataRow]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
@@ -244,7 +244,7 @@
                 </If.Else>
               </If>
             </Sequence>
-            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{in_TransactionItem(&quot;Plant&quot;).ToString,in_TransactionItem(&quot;Vendor Number&quot;).ToString,in_TransactionItem(&quot;Purchasing Document Number&quot;).ToString,ExcelDate,currentItem(&quot;Item&quot;).ToString,&quot;&quot;,&quot;QuantityBased&quot;,currentItem(&quot;Short Text&quot;).ToString,currentItem(&quot;GL Account&quot;).ToString,&quot;&quot;,currentItem(&quot;Cost Center&quot;).ToString,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,currentItem(&quot;Budget&quot;).ToString,currentItem(&quot;Unit Price&quot;).ToString,currentItem(&quot;Total Before GST&quot;).ToString,currentItem(&quot;Oun&quot;).ToString,currentItem(&quot;Quantity&quot;).ToString,InvoicedAmount.ToString,InvoicedQty.ToString,DeliveredAmount.ToString,DeliveredQty.ToString,currentItem(&quot;Crcy&quot;).ToString,currentItem(&quot;Tax Code&quot;).ToString,&quot;&quot;,currentItem(&quot;User&quot;).ToString,&quot;&quot;,&quot;No&quot;,&quot;Yes&quot;,&quot;&quot;,in_BillingComplted,&quot;No&quot;,currentItem(&quot;Vehicle Number&quot;).ToString,CodingBlock}]" DataTable="[io_dt_ItemCSV]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="450,186" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{Chr(34)+in_TransactionItem(&quot;Plant&quot;).ToString+Chr(34),Chr(34)+in_TransactionItem(&quot;Vendor Number&quot;).ToString+Chr(34),Chr(34)+in_TransactionItem(&quot;Purchasing Document Number&quot;).ToString+Chr(34),Chr(34)+ExcelDate+Chr(34),Chr(34)+currentItem(&quot;Item&quot;).ToString+Chr(34),Chr(34)+&quot;&quot;+Chr(34),Chr(34)+&quot;QuantityBased&quot;+Chr(34),Chr(34)+currentItem(&quot;Short Text&quot;).ToString+Chr(34),Chr(34)+currentItem(&quot;GL Account&quot;).ToString+Chr(34),Chr(34)+&quot;&quot;+Chr(34),Chr(34)+currentItem(&quot;Cost Center&quot;).ToString+Chr(34),Chr(34)+&quot;&quot;+Chr(34),Chr(34)+&quot;&quot;+Chr(34),Chr(34)+&quot;&quot;+Chr(34),Chr(34)+&quot;&quot;+Chr(34),Chr(34)+&quot;&quot;+Chr(34),Chr(34)+&quot;&quot;+Chr(34),Chr(34)+currentItem(&quot;Budget&quot;).ToString+Chr(34),Chr(34)+currentItem(&quot;Unit Price&quot;).ToString+Chr(34),Chr(34)+currentItem(&quot;Total Before GST&quot;).ToString+Chr(34),Chr(34)+currentItem(&quot;Oun&quot;).ToString+Chr(34),Chr(34)+currentItem(&quot;Quantity&quot;).ToString+Chr(34),Chr(34)+InvoicedAmount.ToString+Chr(34),Chr(34)+InvoicedQty.ToString+Chr(34),Chr(34)+DeliveredAmount.ToString+Chr(34),Chr(34)+DeliveredQty.ToString+Chr(34),Chr(34)+currentItem(&quot;Crcy&quot;).ToString+Chr(34),Chr(34)+currentItem(&quot;Tax Code&quot;).ToString+Chr(34),Chr(34)+&quot;&quot;+Chr(34),Chr(34)+currentItem(&quot;User&quot;).ToString+Chr(34),Chr(34)+&quot;&quot;+Chr(34),Chr(34)+&quot;No&quot;+Chr(34),Chr(34)+&quot;Yes&quot;+Chr(34),Chr(34)+&quot;&quot;+Chr(34),Chr(34)+in_BillingComplted+Chr(34),Chr(34)+&quot;No&quot;+Chr(34),Chr(34)+currentItem(&quot;Vehicle Number&quot;).ToString+Chr(34),Chr(34)+CodingBlock+Chr(34)}]" DataTable="[io_dt_ItemCSV]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="450,186" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
           </Sequence>
         </ActivityAction>
       </ui:ForEach.Body>

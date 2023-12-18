@@ -46,6 +46,7 @@
       <x:String>UiPath.Excel.Activities</x:String>
       <x:String>UiPath.CSV</x:String>
       <x:String>UiPath.CSV.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -102,6 +103,12 @@
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
       <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>UiPath.FTP.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="Read_Header_ItemTemplate" sap:VirtualizedContainerService.HintSize="558,2472" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -201,8 +208,8 @@
       <ui:CopyFile ContinueOnError="{x:Null}" Destination="[out_ItemFilePath]" DisplayName="Copy Item file" sap:VirtualizedContainerService.HintSize="434,154" sap2010:WorkflowViewState.IdRef="CopyFile_2" Overwrite="True" Path="[ItemTempPath]" />
       <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Item File Created.  &quot;+out_ItemFilePath]" />
     </Sequence>
-    <ui:ReadCsvFile DataTable="[out_dt_HeaderCSV]" Delimitator="Comma" DisplayName="Read  Header CSV" FilePath="[out_HeaderFilePath]" sap:VirtualizedContainerService.HintSize="496,154" sap2010:WorkflowViewState.IdRef="ReadCsvFile_1" />
-    <ui:ReadCsvFile DataTable="[out_dt_ItemCSV]" Delimitator="Comma" DisplayName="Read Line Item CSV" FilePath="[out_ItemFilePath]" sap:VirtualizedContainerService.HintSize="496,154" sap2010:WorkflowViewState.IdRef="ReadCsvFile_2" />
+    <ui:ReadCsvFile DataTable="[out_dt_HeaderCSV]" Delimitator="Comma" DisplayName="Read  Header CSV" FilePath="[out_HeaderFilePath]" sap:VirtualizedContainerService.HintSize="496,154" sap2010:WorkflowViewState.IdRef="ReadCsvFile_3" IgnoreQuotes="True" />
+    <ui:ReadCsvFile DataTable="[out_dt_ItemCSV]" Delimitator="Comma" DisplayName="Read Line Item CSV" FilePath="[out_ItemFilePath]" sap:VirtualizedContainerService.HintSize="496,154" sap2010:WorkflowViewState.IdRef="ReadCsvFile_2" IgnoreQuotes="True" />
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="496,141" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Header File read succesully&quot;]" />
   </Sequence>
 </Activity>
