@@ -6,7 +6,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>658,2147</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>658,2428</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Select_TaxCode_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -94,20 +94,47 @@
       <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Select_TaxCode" sap:VirtualizedContainerService.HintSize="668,2082" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Select_TaxCode" sap:VirtualizedContainerService.HintSize="668,2363" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="606,141" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Selecting Tax code based on line item tax code&quot;]" />
-    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Attach Window: SAP Window" sap:VirtualizedContainerService.HintSize="606,1637" sap2010:WorkflowViewState.IdRef="WindowScope_1" Window="[io_SAPWindow]">
+    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'saplogon.exe Enter'" sap:VirtualizedContainerService.HintSize="606,340" sap2010:WorkflowViewState.IdRef="WindowScope_2" InformativeScreenshot="ed4ce06cae878ca18fde040e7d27a4cd" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Enter Incoming Invoice: Company Code SG77' /&gt;">
       <ui:WindowScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="572,1528" sap2010:WorkflowViewState.IdRef="Sequence_5">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="496,193" sap2010:WorkflowViewState.IdRef="Sequence_6">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="Test" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_4">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[Test]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">P5 (Tax o purchases : 8%)</InArgument>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+        </ActivityAction>
+      </ui:WindowScope.Body>
+    </ui:WindowScope>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="606,141" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Selecting Tax code based on line item tax code&quot;]" />
+    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Attach Window: SAP Window" sap:VirtualizedContainerService.HintSize="606,1538" sap2010:WorkflowViewState.IdRef="WindowScope_1" Window="[io_SAPWindow]">
+      <ui:WindowScope.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="572,1429" sap2010:WorkflowViewState.IdRef="Sequence_5">
             <Sequence.Variables>
               <Variable x:TypeArguments="sd:DataTable" Name="dt_UniqueTaxCode" />
             </Sequence.Variables>
@@ -124,7 +151,7 @@
                 <InArgument x:TypeArguments="sd:DataTable">[in_dt_LinetItems.DefaultView.ToTable(true, "Tax Code")]</InArgument>
               </Assign.Value>
             </Assign>
-            <If Condition="[dt_UniqueTaxCode.RowCount=1]" DisplayName="If Unique Tax code found" sap:VirtualizedContainerService.HintSize="510,1295" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[dt_UniqueTaxCode.RowCount=1]" DisplayName="If Unique Tax code found" sap:VirtualizedContainerService.HintSize="510,1196" sap2010:WorkflowViewState.IdRef="If_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -132,7 +159,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="476,737" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                <Sequence sap:VirtualizedContainerService.HintSize="476,638" sap2010:WorkflowViewState.IdRef="Sequence_2">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Name="TaxCode" />
                     <Variable x:TypeArguments="sd:DataRow[]" Name="arrFullTaxCodeName" />
@@ -176,19 +203,36 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:CommentOut>
-                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Tax Code drop down" sap:VirtualizedContainerService.HintSize="434,107" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
-                    <ui:Click.CursorPosition>
-                      <ui:CursorPosition Position="Center">
-                        <ui:CursorPosition.OffsetX>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:CursorPosition.OffsetX>
-                        <ui:CursorPosition.OffsetY>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:CursorPosition.OffsetY>
-                      </ui:CursorPosition>
-                    </ui:Click.CursorPosition>
-                    <ui:Click.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="047be6b9-37aa-4a6c-84ee-f173e741d94c" InformativeScreenshot="0be6346b7a622ab9d76f0b882af22fbc" Selector="&lt;sap id='usr/subHEADER_AND_ITEMS:SAPLMR1M:6005/tabsHEADER/tabpHEADER_TOTAL/ssubHEADER_SCREEN:SAPLFDCB:0010/cmbINVFO-MWSKZ' /&gt;">
+                  <ui:SelectItem AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Select Item 'ComboBox Tax'" sap:VirtualizedContainerService.HintSize="434,155" sap2010:WorkflowViewState.IdRef="SelectItem_2" Item="[TaxCode]">
+                    <ui:SelectItem.Items>
+                      <scg:List x:TypeArguments="x:String" Capacity="32">
+                        <x:String>P0 (Tax on purchases : 0%)</x:String>
+                        <x:String>P1 (Tax on purchases : 7%)</x:String>
+                        <x:String>P2 (Exempted Purchases)</x:String>
+                        <x:String>P3 (Tax on purchases : 3.5%)</x:String>
+                        <x:String>P4 (Out of scope purchases)</x:String>
+                        <x:String>P5 (Tax on purchases : 8%)</x:String>
+                        <x:String>P6 (Tax on purchases : 9%)</x:String>
+                        <x:String>P7 (Tax on purchases : 4%)</x:String>
+                        <x:String>P8 (Tax on purchases : 4.5%)</x:String>
+                        <x:String>P9 (Tax on purchases : Import)</x:String>
+                        <x:String>PA (Tax on purchases : Not taxable)</x:String>
+                        <x:String>PO (Exempted Purchases)</x:String>
+                        <x:String>S0 (Tax on sales : 0%)</x:String>
+                        <x:String>S1 (Tax on sales : 7%)</x:String>
+                        <x:String>S2 (Exempted Sales)</x:String>
+                        <x:String>S3 (Tax on sales : 3.5%)</x:String>
+                        <x:String>S4 (Out of scope sales)</x:String>
+                        <x:String>S5 (Tax on sales : 8%)</x:String>
+                        <x:String>S6 (Tax on sales : 9%)</x:String>
+                        <x:String>S7 (Tax on sales : 4%)</x:String>
+                        <x:String>S8 (Tax on sales : 4.5%)</x:String>
+                        <x:String>J0</x:String>
+                        <x:String xml:space="preserve"> </x:String>
+                      </scg:List>
+                    </ui:SelectItem.Items>
+                    <ui:SelectItem.Target>
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="cadb9f93-4472-4f8a-a91d-0f1c00c581c1" InformativeScreenshot="e12de22deabdb9b94de2ece79f2aefec" Selector="&lt;sap id='usr/subHEADER_AND_ITEMS:SAPLMR1M:6005/tabsHEADER/tabpHEADER_TOTAL/ssubHEADER_SCREEN:SAPLFDCB:0010/cmbINVFO-MWSKZ' /&gt;">
                         <ui:Target.TimeoutMS>
                           <InArgument x:TypeArguments="x:Int32" />
                         </ui:Target.TimeoutMS>
@@ -196,30 +240,8 @@
                           <InArgument x:TypeArguments="ui:WaitForReady" />
                         </ui:Target.WaitForReady>
                       </ui:Target>
-                    </ui:Click.Target>
-                  </ui:Click>
-                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Select specifi Tax Code" sap:VirtualizedContainerService.HintSize="434,107" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
-                    <ui:Click.CursorPosition>
-                      <ui:CursorPosition Position="Center">
-                        <ui:CursorPosition.OffsetX>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:CursorPosition.OffsetX>
-                        <ui:CursorPosition.OffsetY>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:CursorPosition.OffsetY>
-                      </ui:CursorPosition>
-                    </ui:Click.CursorPosition>
-                    <ui:Click.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d9ded754-a57a-4a07-8993-8652df4aec88" InformativeScreenshot="763022499c1cfaa6dc6329e811a9df58" Selector="[&quot;&lt;wnd app='saplogon.exe' cls='Afx:*' title='listbox shell' /&gt;&lt;wnd cls='ListBox' /&gt;&lt;ctrl name='&quot;+TaxCode+&quot;' role='list item' /&gt;&quot;]">
-                        <ui:Target.TimeoutMS>
-                          <InArgument x:TypeArguments="x:Int32" />
-                        </ui:Target.TimeoutMS>
-                        <ui:Target.WaitForReady>
-                          <InArgument x:TypeArguments="ui:WaitForReady" />
-                        </ui:Target.WaitForReady>
-                      </ui:Target>
-                    </ui:Click.Target>
-                  </ui:Click>
+                    </ui:SelectItem.Target>
+                  </ui:SelectItem>
                 </Sequence>
               </If.Then>
               <If.Else>

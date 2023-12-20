@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1234,1852</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>582,1852</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Payment_Tab_Details_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -106,11 +106,7 @@
           <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="496,1386" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="StatuBarMsg" />
-              <Variable x:TypeArguments="x:String" Name="inValidKeyword">
-                <Variable.Default>
-                  <Literal x:TypeArguments="x:String">invalid</Literal>
-                </Variable.Default>
-              </Variable>
+              <Variable x:TypeArguments="x:String" Default="invalid" Name="inValidKeyword" />
               <Variable x:TypeArguments="x:String" Name="InvoiceNumber" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
@@ -187,7 +183,7 @@
                 <OutArgument x:TypeArguments="x:String">[InvoiceNumber]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[in_CurrentTransaction("Invoice Number").ToString.Trim.ToLower.Replace("inv","").Replace("invoice","")]</InArgument>
+                <InArgument x:TypeArguments="x:String">[in_CurrentTransaction("Invoice Number").ToString.Trim.ToLower.Replace("invoice","").Replace("inv","")]</InArgument>
               </Assign.Value>
             </Assign>
             <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Enter Invoice number" EmptyField="True" sap:VirtualizedContainerService.HintSize="434,155" sap2010:WorkflowViewState.IdRef="TypeInto_1" SimulateType="True" Text="[InvoiceNumber]">

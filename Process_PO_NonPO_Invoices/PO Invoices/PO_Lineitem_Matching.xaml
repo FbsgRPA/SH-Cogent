@@ -6,7 +6,7 @@
     <x:Property Name="in_ExcpLineItemMismatch" Type="InArgument(x:String)" />
     <x:Property Name="in_ExcpAmountMismatch" Type="InArgument(x:String)" />
   </x:Members>
-  <sap:VirtualizedContainerService.HintSize>1234,2497</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>654,3212</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -109,7 +109,7 @@
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="PO Line item Matching" sap:VirtualizedContainerService.HintSize="664,2432" sap2010:WorkflowViewState.IdRef="Sequence_10">
+  <Sequence DisplayName="PO Line item Matching" sap:VirtualizedContainerService.HintSize="664,3147" sap2010:WorkflowViewState.IdRef="Sequence_10">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="dt_UniqueTaxCode" />
       <Variable x:TypeArguments="x:Object" Name="ObjLineItem" />
@@ -156,13 +156,13 @@
         <InArgument x:TypeArguments="sd:DataTable">[CType(ObjLineItem,DataTable)]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_LineItemFromXML]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="602,1623" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_LineItemFromXML]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="602,2338" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="568,1437" sap2010:WorkflowViewState.IdRef="Sequence_16">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="568,2152" sap2010:WorkflowViewState.IdRef="Sequence_16">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="XMLAmount" />
               <Variable x:TypeArguments="x:String" Name="XMLQuantity" />
@@ -175,7 +175,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Assign sap:VirtualizedContainerService.HintSize="526,82" sap2010:WorkflowViewState.IdRef="Assign_14">
+            <Assign sap:VirtualizedContainerService.HintSize="526,81" sap2010:WorkflowViewState.IdRef="Assign_14">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:String">[ItemNumber]</OutArgument>
               </Assign.To>
@@ -183,7 +183,7 @@
                 <InArgument x:TypeArguments="x:String">[CurrentRow("Item Number").ToString]</InArgument>
               </Assign.Value>
             </Assign>
-            <Assign sap:VirtualizedContainerService.HintSize="526,82" sap2010:WorkflowViewState.IdRef="Assign_15">
+            <Assign sap:VirtualizedContainerService.HintSize="526,81" sap2010:WorkflowViewState.IdRef="Assign_15">
               <Assign.To>
                 <OutArgument x:TypeArguments="sd:DataRow[]">[MatchedItemInfo]</OutArgument>
               </Assign.To>
@@ -191,7 +191,7 @@
                 <InArgument x:TypeArguments="sd:DataRow[]">[(From MyRow In in_dt_LinetItemsFromSAP.AsEnumerable Where (MyRow("Item1").ToString.Trim.Equals(ItemNumber.Trim)) Select MyRow).ToArray]</InArgument>
               </Assign.Value>
             </Assign>
-            <If Condition="[MatchedItemInfo.Count&gt;0]" DisplayName="If Item matched" sap:VirtualizedContainerService.HintSize="526,1105" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[MatchedItemInfo.Count&gt;0]" DisplayName="If Item matched" sap:VirtualizedContainerService.HintSize="526,1822" sap2010:WorkflowViewState.IdRef="If_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -199,7 +199,7 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="492,564" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                <Sequence sap:VirtualizedContainerService.HintSize="492,1281" sap2010:WorkflowViewState.IdRef="Sequence_17">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="sd:DataRow[]" Name="IsLineItemMatch" />
                   </Sequence.Variables>
@@ -216,7 +216,7 @@
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_11">
+                    <Assign sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_11">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:String">[XMLAmount]</OutArgument>
                       </Assign.To>
@@ -224,7 +224,7 @@
                         <InArgument x:TypeArguments="x:String">[CurrentRow("Amount").ToString]</InArgument>
                       </Assign.Value>
                     </Assign>
-                    <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_12">
+                    <Assign sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_12">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:String">[XMLQuantity]</OutArgument>
                       </Assign.To>
@@ -241,18 +241,18 @@
                       </Assign.Value>
                     </Assign>
                   </Sequence>
-                  <Assign sap:VirtualizedContainerService.HintSize="450,82" sap2010:WorkflowViewState.IdRef="Assign_16">
+                  <Assign sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Assign_16">
                     <Assign.To>
                       <OutArgument x:TypeArguments="sd:DataRow[]">[IsLineItemMatch]</OutArgument>
                     </Assign.To>
                     <Assign.Value>
-                      <InArgument x:TypeArguments="sd:DataRow[]" xml:space="preserve">[(From MyRow In MatchedItemInfo.AsEnumerable Where (MyRow("Amount").ToString.Trim.Equals(XMLAmount.Trim) And MyRow("Quantity").ToString.Trim.Equals(XMLQuantity.Trim) and  MyRow("Cost Centre").ToString.Trim.Equals(XMLCostCentre.Trim)) Select MyRow).ToArray]</InArgument>
+                      <InArgument x:TypeArguments="sd:DataRow[]" xml:space="preserve">[(From MyRow In MatchedItemInfo.AsEnumerable Where (Convert.ToDouble(MyRow("Amount").ToString)=Convert.ToDouble(XMLAmount.Trim) And MyRow("Quantity").ToString.Trim.Equals(XMLQuantity.Trim) and  MyRow("Cost Center").ToString.Trim.Equals(XMLCostCentre.Trim)) Select MyRow).ToArray]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <If Condition="[IsLineItemMatch.Count&gt;0]" DisplayName="If Amount, Qty matched" sap:VirtualizedContainerService.HintSize="450,52" sap2010:WorkflowViewState.IdRef="If_2">
+                  <If Condition="[IsLineItemMatch.Count&gt;0]" DisplayName="If Amount, Qty matched" sap:VirtualizedContainerService.HintSize="450,770" sap2010:WorkflowViewState.IdRef="If_2">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
