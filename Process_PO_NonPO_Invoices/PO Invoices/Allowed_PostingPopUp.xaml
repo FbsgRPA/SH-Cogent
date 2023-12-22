@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Allowed_PostingPopUp" sap:VirtualizedContainerService.HintSize="680,700" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Allowed_PostingPopUp" sap:VirtualizedContainerService.HintSize="462,780" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -99,7 +99,7 @@
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Allow Posting" sap:VirtualizedContainerService.HintSize="472,635" sap2010:WorkflowViewState.IdRef="Sequence_19">
+  <Sequence DisplayName="Allow Posting" sap:VirtualizedContainerService.HintSize="472,715" sap2010:WorkflowViewState.IdRef="Sequence_19">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="IsPopUpExist" />
       <Variable x:TypeArguments="x:Int32" Default="5000" Name="TimeOutShort" />
@@ -111,14 +111,14 @@
     </sap:WorkflowViewStateService.ViewState>
     <ui:UiElementExists DisplayName="Allowed Posting Popup" Exists="[IsPopUpExist]" sap:VirtualizedContainerService.HintSize="410,107" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
       <ui:UiElementExists.Target>
-        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="887ca863-9f93-4a52-9155-4b840910777f" InformativeScreenshot="2d54c39a005df996d9a4be3f92150d6b" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='Information' idx='*' /&gt;&lt;sap text='Allowed posting periods:' /&gt;" TimeoutMS="2000">
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="887ca863-9f93-4a52-9155-4b840910777f" InformativeScreenshot="2d54c39a005df996d9a4be3f92150d6b" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='Information' idx='*' /&gt;&lt;sap text='Allowed posting periods:' /&gt;" TimeoutMS="1500">
           <ui:Target.WaitForReady>
             <InArgument x:TypeArguments="ui:WaitForReady" />
           </ui:Target.WaitForReady>
         </ui:Target>
       </ui:UiElementExists.Target>
     </ui:UiElementExists>
-    <If Condition="[IsPopUpExist]" DisplayName="If Allowed Posting popup Exist" sap:VirtualizedContainerService.HintSize="410,377" sap2010:WorkflowViewState.IdRef="If_2">
+    <If Condition="[IsPopUpExist]" DisplayName="If Allowed Posting popup Exist" sap:VirtualizedContainerService.HintSize="410,457" sap2010:WorkflowViewState.IdRef="If_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>

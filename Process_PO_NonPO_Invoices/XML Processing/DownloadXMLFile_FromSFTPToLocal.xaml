@@ -8,11 +8,12 @@
     <x:Property Name="in_LocalOutFold" Type="InArgument(x:String)" />
     <x:Property Name="in_ArchivalPath" Type="InArgument(x:String)" />
     <x:Property Name="in_ExcpNoXML" Type="InArgument(x:String)" />
+    <x:Property Name="in_SftpCredName" Type="InArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>786,3642</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1234,3642</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetFile_FromSFTP_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -143,7 +144,7 @@
         <Sequence sap2010:WorkflowViewState.IdRef="Sequence_10" />
       </If.Else>
     </If>
-    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="SFTP_Cred" CacheStrategy="None" DisplayName="Get Credential" FolderPath="Shared" sap:VirtualizedContainerService.HintSize="734,143" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[PassWord]" Username="[UserName]" />
+    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_SftpCredName]" CacheStrategy="None" DisplayName="Get Credential" FolderPath="Shared" sap:VirtualizedContainerService.HintSize="734,143" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[PassWord]" Username="[UserName]" />
     <p:WithFtpSession ClientCertificatePassword="{x:Null}" ClientCertificatePath="{x:Null}" ClientCertificateSecurePassword="{x:Null}" Password="{x:Null}" CertificatePasswordInputModeSwitch="Password" ContinueOnError="False" DisplayName="SFTP Scope" sap:VirtualizedContainerService.HintSize="734,2837" Host="[in_HostName]" sap2010:WorkflowViewState.IdRef="WithFtpSession_1" PasswordInputModeSwitch="Password" Port="[Convert.ToInt32(in_Port)]" SecurePassword="[PassWord]" UseSftp="True" Username="[UserName]">
       <p:WithFtpSession.Body>
         <ActivityAction x:TypeArguments="p:IFtpSession">
@@ -196,12 +197,8 @@
                         <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="486,141" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Xml downloaed to local path:&quot;+XmlLocalPath]" />
                         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Archive_XMLFiles.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="486,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="XML Processing\Archive_XMLFiles.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
-                            <InArgument x:TypeArguments="x:String" x:Key="in_LocalOutFold">
-                              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_LocalOutFold" />
-                            </InArgument>
-                            <InArgument x:TypeArguments="x:String" x:Key="in_ArchivalPath">
-                              <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_ArchivalPath" />
-                            </InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_LocalOutFold">[in_LocalOutFold]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_ArchivalPath">[in_ArchivalPath]</InArgument>
                           </ui:InvokeWorkflowFile.Arguments>
                         </ui:InvokeWorkflowFile>
                         <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="486,303" sap2010:WorkflowViewState.IdRef="CommentOut_1">
@@ -214,21 +211,11 @@
                               </sap:WorkflowViewStateService.ViewState>
                               <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="XML Processing\Delete_XML_fromSFTP.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="XML Processing\Delete_XML_fromSFTP.xaml">
                                 <ui:InvokeWorkflowFile.Arguments>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_HostName">
-                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_HostName" />
-                                  </InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_Port">
-                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Port" />
-                                  </InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_SftpOutFoldPath">
-                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_SftpOutFoldPath" />
-                                  </InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_UserName">
-                                    <VisualBasicValue x:TypeArguments="x:String" ExpressionText="UserName" />
-                                  </InArgument>
-                                  <InArgument x:TypeArguments="ss:SecureString" x:Key="in_PassWord">
-                                    <VisualBasicValue x:TypeArguments="ss:SecureString" ExpressionText="PassWord" />
-                                  </InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_HostName">[in_HostName]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_Port">[in_Port]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_SftpOutFoldPath">[in_SftpOutFoldPath]</InArgument>
+                                  <InArgument x:TypeArguments="x:String" x:Key="in_UserName">[UserName]</InArgument>
+                                  <InArgument x:TypeArguments="ss:SecureString" x:Key="in_PassWord">[PassWord]</InArgument>
                                 </ui:InvokeWorkflowFile.Arguments>
                               </ui:InvokeWorkflowFile>
                             </Sequence>

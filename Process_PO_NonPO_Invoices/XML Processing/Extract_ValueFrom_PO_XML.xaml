@@ -2,8 +2,9 @@
   <x:Members>
     <x:Property Name="in_DserialzXML" Type="InArgument(sxl:XDocument)" />
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
-    <x:Property Name="in_InvoiceNumber" Type="InArgument(x:String)" />
     <x:Property Name="io_dt_POData" Type="InOutArgument(sd:DataTable)" />
+    <x:Property Name="in_FileName" Type="InArgument(x:String)" />
+    <x:Property Name="out_InvoiceNum" Type="OutArgument(x:Object)" />
   </x:Members>
   <this:Extract_ValueFrom_PO_XML.in_DserialzXML>
     <InArgument x:TypeArguments="sxl:XDocument" />
@@ -11,7 +12,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>502,636</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>548,1516</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Extract_ValueFrom_PO_XML_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -44,6 +45,7 @@
       <x:String>System.Xml.Serialization</x:String>
       <x:String>System.Reflection</x:String>
       <x:String>UiPath.Web.Activities</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -98,9 +100,10 @@
       <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
       <AssemblyReference>System.Collections</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Extract_ValueFrom_PO_XML" sap:VirtualizedContainerService.HintSize="512,571" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Extract_ValueFrom_PO_XML" sap:VirtualizedContainerService.HintSize="558,1451" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Object" Name="CompCode" />
       <Variable x:TypeArguments="x:Object" Name="InvDate" />
@@ -114,25 +117,34 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="Get all values" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence DisplayName="Get all values" sap:VirtualizedContainerService.HintSize="496,961" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:ExecuteXPath XMLString="{x:Null}" DisplayName="Execute XPath:Comp Code" ExistingXML="[in_DserialzXML]" sap:VirtualizedContainerService.HintSize="388,88" sap2010:WorkflowViewState.IdRef="ExecuteXPath_1" Result="[CompCode]" XPathExpression="[&quot;string(/Invoice/&quot;+in_Config(&quot;tag_CompCode&quot;).ToString.Trim+&quot;)&quot;]" />
-      <ui:ExecuteXPath XMLString="{x:Null}" DisplayName="Execute XPath:Invoice Date" ExistingXML="[in_DserialzXML]" sap:VirtualizedContainerService.HintSize="388,88" sap2010:WorkflowViewState.IdRef="ExecuteXPath_2" Result="[InvDate]" XPathExpression="[&quot;string(/Invoice/&quot;+in_Config(&quot;tag_InvDate&quot;).ToString.Trim+&quot;)&quot;]" />
-      <ui:ExecuteXPath XMLString="{x:Null}" DisplayName="Execute XPath: Amount" ExistingXML="[in_DserialzXML]" sap:VirtualizedContainerService.HintSize="388,88" sap2010:WorkflowViewState.IdRef="ExecuteXPath_3" Result="[Amount]" XPathExpression="[&quot;string(/Invoice/&quot;+in_Config(&quot;tag_Amount&quot;).ToString.Trim+&quot;)&quot;]" />
-      <ui:ExecuteXPath XMLString="{x:Null}" DisplayName="Execute XPath: Tax Amount" ExistingXML="[in_DserialzXML]" sap:VirtualizedContainerService.HintSize="388,88" sap2010:WorkflowViewState.IdRef="ExecuteXPath_4" Result="[TaxAmount]" XPathExpression="[&quot;string(/Invoice/&quot;+in_Config(&quot;tag_TaxAmount&quot;).ToString.Trim+&quot;)&quot;]" />
-      <ui:ExecuteXPath XMLString="{x:Null}" DisplayName="Execute XPath: Purchase Order" ExistingXML="[in_DserialzXML]" sap:VirtualizedContainerService.HintSize="388,88" sap2010:WorkflowViewState.IdRef="ExecuteXPath_5" Result="[PurchaseOrder]" XPathExpression="[&quot;string(/Invoice/&quot;+in_Config(&quot;tag_PurchaseOrder&quot;).ToString.Trim+&quot;)&quot;]" />
+      <ui:ExecuteXPath XMLString="{x:Null}" DisplayName="Execute XPath:Invoice Number" ExistingXML="[in_DserialzXML]" sap:VirtualizedContainerService.HintSize="434,88" sap2010:WorkflowViewState.IdRef="ExecuteXPath_7" Result="[out_InvoiceNum]" XPathExpression="[&quot;string(/Invoice/&quot;+in_Config(&quot;tag_InvoiceNum&quot;).ToString.Trim+&quot;)&quot;]" />
+      <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[out_InvoiceNum]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Replace(out_InvoiceNum.ToString,"\D","")]</InArgument>
+        </Assign.Value>
+      </Assign>
+      <ui:ExecuteXPath XMLString="{x:Null}" DisplayName="Execute XPath:Comp Code" ExistingXML="[in_DserialzXML]" sap:VirtualizedContainerService.HintSize="434,88" sap2010:WorkflowViewState.IdRef="ExecuteXPath_1" Result="[CompCode]" XPathExpression="[&quot;string(/Invoice/&quot;+in_Config(&quot;tag_CompCode&quot;).ToString.Trim+&quot;)&quot;]" />
+      <ui:ExecuteXPath XMLString="{x:Null}" DisplayName="Execute XPath:Invoice Date" ExistingXML="[in_DserialzXML]" sap:VirtualizedContainerService.HintSize="434,88" sap2010:WorkflowViewState.IdRef="ExecuteXPath_2" Result="[InvDate]" XPathExpression="[&quot;string(/Invoice/&quot;+in_Config(&quot;tag_InvDate&quot;).ToString.Trim+&quot;)&quot;]" />
+      <ui:ExecuteXPath XMLString="{x:Null}" DisplayName="Execute XPath: Amount" ExistingXML="[in_DserialzXML]" sap:VirtualizedContainerService.HintSize="434,88" sap2010:WorkflowViewState.IdRef="ExecuteXPath_3" Result="[Amount]" XPathExpression="[&quot;string(/Invoice/&quot;+in_Config(&quot;tag_Amount&quot;).ToString.Trim+&quot;)&quot;]" />
+      <ui:ExecuteXPath XMLString="{x:Null}" DisplayName="Execute XPath: Tax Amount" ExistingXML="[in_DserialzXML]" sap:VirtualizedContainerService.HintSize="434,88" sap2010:WorkflowViewState.IdRef="ExecuteXPath_4" Result="[TaxAmount]" XPathExpression="[&quot;string(/Invoice/&quot;+in_Config(&quot;tag_TaxAmount&quot;).ToString.Trim+&quot;)&quot;]" />
+      <ui:ExecuteXPath XMLString="{x:Null}" DisplayName="Execute XPath: Purchase Order" ExistingXML="[in_DserialzXML]" sap:VirtualizedContainerService.HintSize="434,88" sap2010:WorkflowViewState.IdRef="ExecuteXPath_5" Result="[PurchaseOrder]" XPathExpression="[&quot;string(/Invoice/&quot;+in_Config(&quot;tag_PurchaseOrder&quot;).ToString.Trim+&quot;)&quot;]" />
     </Sequence>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Get_LineItemDetails.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="450,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="XML Processing\Get_LineItemDetails.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Get_LineItemDetails.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="496,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="XML Processing\Get_LineItemDetails.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="sxl:XDocument" x:Key="in_DserialzXML">[in_DserialzXML]</InArgument>
         <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_LineItems">[dt_LineItems]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{in_InvoiceNumber,CompCode,InvDate,Amount,TaxAmount,PurchaseOrder,dt_LineItems}]" DataTable="[io_dt_POData]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="450,186" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{out_InvoiceNum,CompCode,InvDate,Amount,TaxAmount,PurchaseOrder,dt_LineItems,in_FileName}]" DataTable="[io_dt_POData]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="496,186" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
   </Sequence>
 </Activity>

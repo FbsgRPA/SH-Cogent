@@ -8,7 +8,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>680,2411</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1234,2417</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Generate_AcknowledgeXML_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -90,7 +90,7 @@
       <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Generate_AcknowledgeXML" sap:VirtualizedContainerService.HintSize="572,2346" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Generate_AcknowledgeXML" sap:VirtualizedContainerService.HintSize="572,2352" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="OutputFile" />
       <Variable x:TypeArguments="x:String" Name="XMLPath" />
@@ -107,11 +107,11 @@
         <OutArgument x:TypeArguments="x:String">[OutputFile]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String">[path.Combine(Environment.CurrentDirectory,in_Config("AckFoldPath").ToString,in_TransactionItem("Invoice Number").ToString+in_Config("AckFileName").ToString)]</InArgument>
+        <InArgument x:TypeArguments="x:String">[path.Combine(Environment.CurrentDirectory,in_Config("AckFoldPath").ToString,in_TransactionItem("File Name").ToString+in_Config("AckFileName").ToString)]</InArgument>
       </Assign.Value>
     </Assign>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="510,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Output Filename: &quot;+OutputFile]" />
-    <If Condition="[in_Is_Success]" DisplayName="If it is Success" sap:VirtualizedContainerService.HintSize="510,1244" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[in_Is_Success]" DisplayName="If it is Success" sap:VirtualizedContainerService.HintSize="510,1250" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -119,13 +119,13 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="476,531" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence sap:VirtualizedContainerService.HintSize="476,534" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_1">
+          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_1">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[XMLPath]</OutArgument>
             </Assign.To>
@@ -134,7 +134,7 @@
             </Assign.Value>
           </Assign>
           <ui:ReadTextFile File="{x:Null}" Content="[XMLText]" DisplayName="Read Text File" FileName="[XMLPath]" sap:VirtualizedContainerService.HintSize="434,80" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
-          <Assign DisplayName="Assign Invoice num" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_2">
+          <Assign DisplayName="Assign Invoice num" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_2">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[XMLText]</OutArgument>
             </Assign.To>
@@ -142,7 +142,7 @@
               <InArgument x:TypeArguments="x:String">[XMLText.Replace(in_Config("XMLKeyInvNum").ToString,in_TransactionItem("Inv RUID").ToString)]</InArgument>
             </Assign.Value>
           </Assign>
-          <Assign sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_3">
+          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_3">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[XMLText]</OutArgument>
             </Assign.To>
@@ -153,13 +153,13 @@
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence sap:VirtualizedContainerService.HintSize="476,531" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence sap:VirtualizedContainerService.HintSize="476,534" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_6">
+          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_6">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[XMLPath]</OutArgument>
             </Assign.To>
@@ -168,7 +168,7 @@
             </Assign.Value>
           </Assign>
           <ui:ReadTextFile File="{x:Null}" Content="[XMLText]" DisplayName="Read Text File" FileName="[XMLPath]" sap:VirtualizedContainerService.HintSize="434,80" sap2010:WorkflowViewState.IdRef="ReadTextFile_2" />
-          <Assign DisplayName="Assign Invoice num" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_7">
+          <Assign DisplayName="Assign Invoice num" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_7">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[XMLText]</OutArgument>
             </Assign.To>
@@ -176,7 +176,7 @@
               <InArgument x:TypeArguments="x:String">[XMLText.Replace(in_Config("XMLKeyInvNum").ToString,in_TransactionItem("Inv RUID").ToString)]</InArgument>
             </Assign.Value>
           </Assign>
-          <Assign sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_8">
+          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_8">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[XMLText]</OutArgument>
             </Assign.To>
@@ -191,24 +191,12 @@
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="510,141" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Ack genrated succesfully&quot;]" />
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Output\Post_AckToSFTP.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="510,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Output\Post_AckToSFTP.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_XmlAckFilePath">
-          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="OutputFile" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_SftpCredName">
-          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SFTP_Cred&quot;).ToString" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_SftpAckFold">
-          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SftpAckFolder&quot;).ToString" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_ExcpSftpAckFoldMissing">
-          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;ExcpMsg_SftpErpAckFolderMissing&quot;).ToString" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_HostName">
-          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SFTP_Host&quot;).ToString" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_Port">
-          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SFTP_Port&quot;).ToString" />
-        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_XmlAckFilePath">[OutputFile]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_SftpCredName">[in_Config("SFTP_Cred").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_SftpAckFold">[in_Config("SftpAckFolder").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_ExcpSftpAckFoldMissing">[in_Config("ExcpMsg_SftpErpAckFolderMissing").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_HostName">[in_Config("SFTP_Host").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_Port">[in_Config("SFTP_Port").ToString]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
   </Sequence>

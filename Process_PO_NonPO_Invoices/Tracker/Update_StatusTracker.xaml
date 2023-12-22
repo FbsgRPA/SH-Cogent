@@ -14,7 +14,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>680,1999</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1234,1999</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Update_StatusTracker_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -159,7 +159,7 @@
                       <InArgument x:TypeArguments="sd:DataRow">[AllMatchedTransactions(0)]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentTransaction(&quot;Purchase Order&quot;).ToString,CurrentTransaction(&quot;Invoice Number&quot;).ToString,CurrentTransaction(&quot;Invoice Date&quot;).ToString,CurrentTransaction(&quot;Tax Amount&quot;).ToString,in_TransactionItem(&quot;Document Number&quot;),in_TransactionItem(&quot;Status&quot;),in_TransactionItem(&quot;Exception If any&quot;),DateTime.Now.ToString}]" DataTable="[in_dt_PoStatusTracker]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,186" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+                  <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentTransaction(&quot;Purchase Order&quot;).ToString,CurrentTransaction(&quot;File Name&quot;).ToString,CurrentTransaction(&quot;Invoice Date&quot;).ToString,CurrentTransaction(&quot;Tax Amount&quot;).ToString,in_TransactionItem(&quot;Document Number&quot;),in_TransactionItem(&quot;Status&quot;),in_TransactionItem(&quot;Exception If any&quot;),DateTime.Now.ToString}]" DataTable="[in_dt_PoStatusTracker]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="434,186" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
                   <ui:ExcelAppendRange DataTable="[in_dt_PoStatusTracker]" DisplayName="Append Range" sap:VirtualizedContainerService.HintSize="434,88" sap2010:WorkflowViewState.IdRef="ExcelAppendRange_1" SheetName="PO Inv" />
                   <ui:ClearDataTable DataTable="[in_dt_PoStatusTracker]" DisplayName="Clear Data Table" sap:VirtualizedContainerService.HintSize="434,80" sap2010:WorkflowViewState.IdRef="ClearDataTable_1" />
                   <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Po Status Tracker updated successfully&quot;]" />
