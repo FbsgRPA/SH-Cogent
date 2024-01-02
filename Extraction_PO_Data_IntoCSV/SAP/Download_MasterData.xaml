@@ -15,7 +15,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>674,3926</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1235,5186</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Download_MasterData_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -119,26 +119,26 @@
       <AssemblyReference>System.Memory.Data</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Download_MasterData" sap:VirtualizedContainerService.HintSize="684,3861" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Download_MasterData" sap:VirtualizedContainerService.HintSize="806,5121" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="622,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Downlaoding Master data&quot;]" />
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SAP\Navigate_TCode.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="622,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="SAP\Navigate_TCode.xaml">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="744,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Downlaoding Master data&quot;]" />
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SAP\Navigate_TCode.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="744,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="SAP\Navigate_TCode.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_TCode">[in_Config("Tcode").ToString]</InArgument>
         <InOutArgument x:TypeArguments="ui:Window" x:Key="io_SAPWindow">[io_SAPWindow]</InOutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" DisplayName="SAP Window" sap:VirtualizedContainerService.HintSize="622,3416" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="48fc358c63ce8da5bdb5f66334c12bbd" Window="[io_SAPWindow]">
+    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" DisplayName="SAP Window" sap:VirtualizedContainerService.HintSize="744,4676" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="48fc358c63ce8da5bdb5f66334c12bbd" Window="[io_SAPWindow]">
       <ui:WindowScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="588,3269" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="710,4529" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="IsReportReady" />
             </Sequence.Variables>
@@ -147,8 +147,8 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="526,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Enter date range&quot;]" />
-            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Enter From date" EmptyField="True" sap:VirtualizedContainerService.HintSize="526,155" sap2010:WorkflowViewState.IdRef="TypeInto_2" SimulateType="True" Text="[in_FromDate]">
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="648,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Enter date range&quot;]" />
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Enter From date" EmptyField="True" sap:VirtualizedContainerService.HintSize="648,155" sap2010:WorkflowViewState.IdRef="TypeInto_2" SimulateType="True" Text="[in_FromDate]">
               <ui:TypeInto.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="89b3ba98-b8bb-4087-a6c0-60ca9e278443" InformativeScreenshot="b2da76aa47b7e1b461d80fa5c65ee2fa" Selector="&lt;sap tooltip='Purchasing Document Date' id='usr/ctxtS_BEDAT-LOW' /&gt;">
                   <ui:Target.TimeoutMS>
@@ -160,7 +160,7 @@
                 </ui:Target>
               </ui:TypeInto.Target>
             </ui:TypeInto>
-            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Enter to date" EmptyField="True" sap:VirtualizedContainerService.HintSize="526,155" sap2010:WorkflowViewState.IdRef="TypeInto_3" SimulateType="True" Text="[in_ToDate]">
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Enter to date" EmptyField="True" sap:VirtualizedContainerService.HintSize="648,155" sap2010:WorkflowViewState.IdRef="TypeInto_3" SimulateType="True" Text="[in_ToDate]">
               <ui:TypeInto.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="5c3b88f0-266d-41f7-80ff-ed7f49ab3e6a" InformativeScreenshot="a0d2bad6df7606eef45c7673e9bed8f0" Selector="&lt;sap id='usr/ctxtS_BEDAT-HIGH' /&gt;">
                   <ui:Target.TimeoutMS>
@@ -172,7 +172,7 @@
                 </ui:Target>
               </ui:TypeInto.Target>
             </ui:TypeInto>
-            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type From Company Code" EmptyField="True" sap:VirtualizedContainerService.HintSize="526,155" sap2010:WorkflowViewState.IdRef="TypeInto_4" SimulateType="True" Text="[in_Config(&quot;CompanyCodeFrom&quot;).ToString]">
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type From Company Code" EmptyField="True" sap:VirtualizedContainerService.HintSize="648,155" sap2010:WorkflowViewState.IdRef="TypeInto_4" SimulateType="True" Text="[in_Config(&quot;CompanyCodeFrom&quot;).ToString]">
               <ui:TypeInto.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7299548a-6b41-46c9-8218-75c4efb73d55" InformativeScreenshot="918b31a40b5e6a9cef66e0ba84658ced" Selector="&lt;sap id='usr/ctxtS_BUKRS-LOW' /&gt;">
                   <ui:Target.TimeoutMS>
@@ -184,7 +184,7 @@
                 </ui:Target>
               </ui:TypeInto.Target>
             </ui:TypeInto>
-            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type To Company code" EmptyField="True" sap:VirtualizedContainerService.HintSize="526,155" sap2010:WorkflowViewState.IdRef="TypeInto_5" SimulateType="True" Text="[in_Config(&quot;CompanyCodeTo&quot;).ToString]">
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" Activate="True" DisplayName="Type To Company code" EmptyField="True" sap:VirtualizedContainerService.HintSize="648,155" sap2010:WorkflowViewState.IdRef="TypeInto_5" SimulateType="True" Text="[in_Config(&quot;CompanyCodeTo&quot;).ToString]">
               <ui:TypeInto.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d64008bf-bf86-4377-a3df-04b8080acdf9" InformativeScreenshot="4830249af8704dbb1f6023d97364e683" Selector="&lt;sap id='usr/ctxtS_BUKRS-HIGH' /&gt;">
                   <ui:Target.TimeoutMS>
@@ -196,7 +196,7 @@
                 </ui:Target>
               </ui:TypeInto.Target>
             </ui:TypeInto>
-            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Purchasing Organisation" sap:VirtualizedContainerService.HintSize="526,155" sap2010:WorkflowViewState.IdRef="TypeInto_6" Text="[in_Config(&quot;PurchasingOrg&quot;).ToString]">
+            <ui:TypeInto AlterIfDisabled="{x:Null}" ClickBeforeTyping="{x:Null}" DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" EmptyField="{x:Null}" SendWindowMessages="{x:Null}" SimulateType="{x:Null}" Activate="True" DisplayName="Purchasing Organisation" sap:VirtualizedContainerService.HintSize="648,155" sap2010:WorkflowViewState.IdRef="TypeInto_6" Text="[in_Config(&quot;PurchasingOrg&quot;).ToString]">
               <ui:TypeInto.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a4f84b14-9736-4c6b-a16e-8b8e48c4c4e5" InformativeScreenshot="24e18f7a16f19cb98f3aa2223c6c4beb" Selector="&lt;wnd app='saplogon.exe' cls='SAP_FRONTEND_SESSION' title='Purchase Order List' /&gt;&lt;sap id='usr/ctxtS_EKORG-LOW' /&gt;">
                   <ui:Target.TimeoutMS>
@@ -208,7 +208,7 @@
                 </ui:Target>
               </ui:TypeInto.Target>
             </ui:TypeInto>
-            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Execute Button" sap:VirtualizedContainerService.HintSize="526,107" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
+            <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Execute Button" sap:VirtualizedContainerService.HintSize="648,107" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT">
               <ui:Click.CursorPosition>
                 <ui:CursorPosition Position="Center">
                   <ui:CursorPosition.OffsetX>
@@ -230,8 +230,8 @@
                 </ui:Target>
               </ui:Click.Target>
             </ui:Click>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="526,141" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Retry Interval is: &quot;+in_RetryInterval.ToString]" />
-            <ui:RetryScope DisplayName="Retry Scope:Download Master Data" sap:VirtualizedContainerService.HintSize="526,688" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="[Cint(in_DownloadretryNum)]" RetryInterval="[in_RetryInterval]">
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="648,141" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Retry Interval is: &quot;+in_RetryInterval.ToString]" />
+            <ui:RetryScope DisplayName="Retry Scope:Download Master Data" sap:VirtualizedContainerService.HintSize="648,688" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="[Cint(in_DownloadretryNum)]" RetryInterval="[in_RetryInterval]">
               <ui:RetryScope.ActivityBody>
                 <ActivityAction>
                   <Sequence DisplayName="Action" sap:VirtualizedContainerService.HintSize="450,399" sap2010:WorkflowViewState.IdRef="Sequence_9">
@@ -262,15 +262,16 @@
                 </ActivityFunc>
               </ui:RetryScope.Condition>
             </ui:RetryScope>
-            <If Condition="[IsReportReady]" DisplayName="If Report Available" sap:VirtualizedContainerService.HintSize="526,946" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[IsReportReady]" DisplayName="If Report Available" sap:VirtualizedContainerService.HintSize="648,2206" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="492,764" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <Sequence sap:VirtualizedContainerService.HintSize="614,2024" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click to export" sap:VirtualizedContainerService.HintSize="450,107" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="572,141" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Report is ready to download&quot;]" />
+                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click to export" sap:VirtualizedContainerService.HintSize="572,107" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                     <ui:Click.CursorPosition>
                       <ui:CursorPosition Position="Center">
                         <ui:CursorPosition.OffsetX>
@@ -292,7 +293,7 @@
                       </ui:Target>
                     </ui:Click.Target>
                   </ui:Click>
-                  <Assign sap:VirtualizedContainerService.HintSize="450,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+                  <Assign sap:VirtualizedContainerService.HintSize="572,82" sap2010:WorkflowViewState.IdRef="Assign_1">
                     <Assign.To>
                       <OutArgument x:TypeArguments="x:String">[out_MasterFilePath]</OutArgument>
                     </Assign.To>
@@ -300,13 +301,13 @@
                       <InArgument x:TypeArguments="x:String">[Path.Combine(Environment.CurrentDirectory,in_Config("DownalodFilePath").ToString)]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <Sequence DisplayName="Delete old files" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <Sequence DisplayName="Delete old files" sap:VirtualizedContainerService.HintSize="572,1160" sap2010:WorkflowViewState.IdRef="Sequence_6">
                     <Sequence.Variables>
                       <Variable x:TypeArguments="s:String[]" Name="ArrOutputFiles" />
                     </Sequence.Variables>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
@@ -341,7 +342,7 @@
                                 <InArgument x:TypeArguments="x:String">[path.GetFileName(currentItem)]</InArgument>
                               </Assign.Value>
                             </Assign>
-                            <If Condition="[FileName.Contains(&quot;export&quot;)]" DisplayName="If File Name is export" sap:VirtualizedContainerService.HintSize="434,350" sap2010:WorkflowViewState.IdRef="If_2">
+                            <If Condition="[FileName.ToLower.Contains(&quot;export&quot;)]" DisplayName="If File Name is export" sap:VirtualizedContainerService.HintSize="434,350" sap2010:WorkflowViewState.IdRef="If_2">
                               <If.Then>
                                 <Sequence sap:VirtualizedContainerService.HintSize="376,168" sap2010:WorkflowViewState.IdRef="Sequence_7">
                                   <sap:WorkflowViewStateService.ViewState>
@@ -368,12 +369,12 @@
                     </ui:ForEach>
                     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="510,141" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Deleted old files&quot;]" />
                   </Sequence>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Save_DownloadedFile.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="450,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="SAP\Save_DownloadedFile.xaml">
+                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Save_DownloadedFile.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="572,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="SAP\Save_DownloadedFile.xaml">
                     <ui:InvokeWorkflowFile.Arguments>
                       <InArgument x:TypeArguments="x:String" x:Key="in_FilePath">[out_MasterFilePath]</InArgument>
                     </ui:InvokeWorkflowFile.Arguments>
                   </ui:InvokeWorkflowFile>
-                  <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="450,133" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="EXCEL" />
+                  <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="572,133" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="EXCEL" />
                 </Sequence>
               </If.Then>
               <If.Else>

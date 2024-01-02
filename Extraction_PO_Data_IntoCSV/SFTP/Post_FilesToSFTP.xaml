@@ -5,11 +5,12 @@
     <x:Property Name="in_ExcpSftpFoldMissing" Type="InArgument(x:String)" />
     <x:Property Name="in_SftpFoldPath" Type="InArgument(x:String)" />
     <x:Property Name="in_CSVFilePaths" Type="InArgument(s:String[])" />
+    <x:Property Name="in_SftpCredName" Type="InArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>680,2633</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1235,2633</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetFile_FromSFTP_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -115,7 +116,7 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="582,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Posting Files to SFTP Server&quot;]" />
-    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="SFTP_Cred" CacheStrategy="None" DisplayName="Get Credential" FolderPath="Shared" sap:VirtualizedContainerService.HintSize="582,143" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[PassWord]" Username="[UserName]" />
+    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_SftpCredName]" CacheStrategy="None" DisplayName="Get Credential" FolderPath="Shared" sap:VirtualizedContainerService.HintSize="582,143" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[PassWord]" Username="[UserName]" />
     <p:WithFtpSession ClientCertificatePassword="{x:Null}" ClientCertificatePath="{x:Null}" ClientCertificateSecurePassword="{x:Null}" Password="{x:Null}" CertificatePasswordInputModeSwitch="Password" ContinueOnError="False" DisplayName="SFTP Scope" sap:VirtualizedContainerService.HintSize="582,2093" Host="[in_HostName.Trim]" sap2010:WorkflowViewState.IdRef="WithFtpSession_1" PasswordInputModeSwitch="Password" Port="[Convert.ToInt32(in_Port)]" SecurePassword="[PassWord]" UseSftp="True" Username="[UserName]">
       <p:WithFtpSession.Body>
         <ActivityAction x:TypeArguments="p:IFtpSession">
