@@ -9,7 +9,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>681,1340</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1234,1340</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Posting_PO_InvoicesToSAP_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -132,24 +132,12 @@
             </ui:InvokeWorkflowFile>
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="PO Invoices\Enter_BasicTab_Details.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="PO Invoices\Enter_BasicTab_Details.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InOutArgument x:TypeArguments="ui:Window" x:Key="io_SAPWindow">
-                  <VisualBasicReference x:TypeArguments="ui:Window" ExpressionText="io_SAPWindow" />
-                </InOutArgument>
-                <InArgument x:TypeArguments="sd:DataRow" x:Key="in_CurrentTransaction">
-                  <VisualBasicValue x:TypeArguments="sd:DataRow" ExpressionText="in_CurrentTransaction" />
-                </InArgument>
-                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_TaxCode">
-                  <VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="in_dt_TaxCode" />
-                </InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_TimeOutShort">
-                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;Timeoutshort&quot;).ToString" />
-                </InArgument>
-                <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_LinetItemsFromSAP">
-                  <VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="dt_lineItemFromSAP" />
-                </OutArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_Excp_ItemsNotFound">
-                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;ExcpMsg_LineitemsMissing&quot;).ToString" />
-                </InArgument>
+                <InOutArgument x:TypeArguments="ui:Window" x:Key="io_SAPWindow">[io_SAPWindow]</InOutArgument>
+                <InArgument x:TypeArguments="sd:DataRow" x:Key="in_CurrentTransaction">[in_CurrentTransaction]</InArgument>
+                <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_TaxCode">[in_dt_TaxCode]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_TimeOutShort">[in_Config("Timeoutshort").ToString]</InArgument>
+                <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_LinetItemsFromSAP">[dt_lineItemFromSAP]</OutArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_Excp_ItemsNotFound">[in_Config("ExcpMsg_LineitemsMissing").ToString]</InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="PO_Lineitem_Matching.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="PO Invoices\PO_Lineitem_Matching.xaml">
@@ -172,10 +160,18 @@
             </ui:InvokeWorkflowFile>
             <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="PO Invoices\Get_DocumentNumber.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_5" UnSafe="False" WorkflowFileName="PO Invoices\Get_DocumentNumber.xaml">
               <ui:InvokeWorkflowFile.Arguments>
-                <InOutArgument x:TypeArguments="ui:Window" x:Key="io_SAPWindow">[io_SAPWindow]</InOutArgument>
-                <InOutArgument x:TypeArguments="sd:DataRow" x:Key="in_TransactionItem">[in_TransactionItem]</InOutArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_ExcpNoDocNUm">[in_Config("ExcpMsg_NoDocNo").ToString]</InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="in_ExcepScreenshotPath">[in_Config("ExScreenshotsFolderPath").ToString]</InArgument>
+                <InOutArgument x:TypeArguments="ui:Window" x:Key="io_SAPWindow">
+                  <VisualBasicReference x:TypeArguments="ui:Window" ExpressionText="io_SAPWindow" />
+                </InOutArgument>
+                <InOutArgument x:TypeArguments="sd:DataRow" x:Key="in_TransactionItem">
+                  <VisualBasicReference x:TypeArguments="sd:DataRow" ExpressionText="in_TransactionItem" />
+                </InOutArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_ExcpNoDocNUm">
+                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;ExcpMsg_NoDocNo&quot;).ToString" />
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_ExcepScreenshotPath">
+                  <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;ExScreenshotsFolderPath&quot;).ToString" />
+                </InArgument>
               </ui:InvokeWorkflowFile.Arguments>
             </ui:InvokeWorkflowFile>
           </Sequence>

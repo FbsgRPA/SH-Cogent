@@ -13,7 +13,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1234,3642</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>734,3452</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetFile_FromSFTP_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -110,7 +110,7 @@
       <AssemblyReference>System.Linq.Queryable</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="GetFile_FromSFTP" sap:VirtualizedContainerService.HintSize="796,3577" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="GetFile_FromSFTP" sap:VirtualizedContainerService.HintSize="744,3387" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="UserName" />
       <Variable x:TypeArguments="ss:SecureString" Name="PassWord" />
@@ -121,9 +121,9 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="734,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Getting Files from SFTP Server&quot;]" />
-    <ui:FolderExistsX DisplayName="Folder Exists" Exists="[IsLocalOutFldExist]" sap:VirtualizedContainerService.HintSize="734,133" sap2010:WorkflowViewState.IdRef="FolderExistsX_2" Path="[in_LocalOutFold]" />
-    <If Condition="[IsLocalOutFldExist]" DisplayName="If Local Out folder exist" sap:VirtualizedContainerService.HintSize="734,52" sap2010:WorkflowViewState.IdRef="If_4">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="682,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Getting Files from SFTP Server&quot;]" />
+    <ui:FolderExistsX DisplayName="Folder Exists" Exists="[IsLocalOutFldExist]" sap:VirtualizedContainerService.HintSize="682,133" sap2010:WorkflowViewState.IdRef="FolderExistsX_2" Path="[in_LocalOutFold]" />
+    <If Condition="[IsLocalOutFldExist]" DisplayName="If Local Out folder exist" sap:VirtualizedContainerService.HintSize="682,52" sap2010:WorkflowViewState.IdRef="If_4">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -144,14 +144,14 @@
         <Sequence sap2010:WorkflowViewState.IdRef="Sequence_10" />
       </If.Else>
     </If>
-    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_SftpCredName]" CacheStrategy="None" DisplayName="Get Credential" FolderPath="Shared" sap:VirtualizedContainerService.HintSize="734,143" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[PassWord]" Username="[UserName]" />
-    <p:WithFtpSession ClientCertificatePassword="{x:Null}" ClientCertificatePath="{x:Null}" ClientCertificateSecurePassword="{x:Null}" Password="{x:Null}" CertificatePasswordInputModeSwitch="Password" ContinueOnError="False" DisplayName="SFTP Scope" sap:VirtualizedContainerService.HintSize="734,2837" Host="[in_HostName]" sap2010:WorkflowViewState.IdRef="WithFtpSession_1" PasswordInputModeSwitch="Password" Port="[Convert.ToInt32(in_Port)]" SecurePassword="[PassWord]" UseSftp="True" Username="[UserName]">
+    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="[in_SftpCredName]" CacheStrategy="None" DisplayName="Get Credential" FolderPath="Shared" sap:VirtualizedContainerService.HintSize="682,143" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[PassWord]" Username="[UserName]" />
+    <p:WithFtpSession ClientCertificatePassword="{x:Null}" ClientCertificatePath="{x:Null}" ClientCertificateSecurePassword="{x:Null}" Password="{x:Null}" CertificatePasswordInputModeSwitch="Password" ContinueOnError="False" DisplayName="SFTP Scope" sap:VirtualizedContainerService.HintSize="682,2647" Host="[in_HostName]" sap2010:WorkflowViewState.IdRef="WithFtpSession_1" PasswordInputModeSwitch="Password" Port="[Convert.ToInt32(in_Port)]" SecurePassword="[PassWord]" UseSftp="True" Username="[UserName]">
       <p:WithFtpSession.Body>
         <ActivityAction x:TypeArguments="p:IFtpSession">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="p:IFtpSession" Name="FtpSession" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="700,2750" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="648,2560" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="IsDirExist" />
             </Sequence.Variables>
@@ -160,11 +160,11 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="638,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;SFTP Server is Accessible&quot;]" />
-            <p:DirectoryExists ContinueOnError="False" DisplayName="Directory Exists" Exists="[IsDirExist]" sap:VirtualizedContainerService.HintSize="638,90" sap2010:WorkflowViewState.IdRef="DirectoryExists_1" RemotePath="[in_SftpOutFoldPath]" />
-            <If Condition="[IsDirExist]" DisplayName="If SFTP Folder not exist" sap:VirtualizedContainerService.HintSize="638,2328" sap2010:WorkflowViewState.IdRef="If_1">
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="586,141" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;SFTP Server is Accessible&quot;]" />
+            <p:DirectoryExists ContinueOnError="False" DisplayName="Directory Exists" Exists="[IsDirExist]" sap:VirtualizedContainerService.HintSize="586,90" sap2010:WorkflowViewState.IdRef="DirectoryExists_1" RemotePath="[in_SftpOutFoldPath]" />
+            <If Condition="[IsDirExist]" DisplayName="If SFTP Folder not exist" sap:VirtualizedContainerService.HintSize="586,2138" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="604,2146" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <Sequence sap:VirtualizedContainerService.HintSize="552,1956" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Name="XmlLocalPath" />
                     <Variable x:TypeArguments="scg:IEnumerable(p:FtpObjectInfo)" Name="SftpOutFiles" />
@@ -174,17 +174,17 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <p:EnumerateObjects ContinueOnError="False" DisplayName="Enumerate Objects" Files="[SftpOutFiles]" sap:VirtualizedContainerService.HintSize="562,90" sap2010:WorkflowViewState.IdRef="EnumerateObjects_1" Recursive="False" RemotePath="[in_SftpOutFoldPath]" />
-                  <If Condition="[SftpOutFiles.Count&gt;0]" DisplayName="Check if folder has files" sap:VirtualizedContainerService.HintSize="562,1928" sap2010:WorkflowViewState.IdRef="If_3">
+                  <p:EnumerateObjects ContinueOnError="False" DisplayName="Enumerate Objects" Files="[SftpOutFiles]" sap:VirtualizedContainerService.HintSize="510,90" sap2010:WorkflowViewState.IdRef="EnumerateObjects_1" Recursive="False" RemotePath="[in_SftpOutFoldPath]" />
+                  <If Condition="[SftpOutFiles.Count&gt;0]" DisplayName="Check if folder has files" sap:VirtualizedContainerService.HintSize="510,1738" sap2010:WorkflowViewState.IdRef="If_3">
                     <If.Then>
-                      <Sequence sap:VirtualizedContainerService.HintSize="528,1387" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                      <Sequence sap:VirtualizedContainerService.HintSize="476,1197" sap2010:WorkflowViewState.IdRef="Sequence_7">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="486,141" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;XML Files found under Out folder&quot;]" />
-                        <Assign DisplayName="XML Local path" sap:VirtualizedContainerService.HintSize="486,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;XML Files found under Out folder&quot;]" />
+                        <Assign DisplayName="XML Local path" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_1">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:String">[XmlLocalPath]</OutArgument>
                           </Assign.To>
@@ -192,35 +192,24 @@
                             <InArgument x:TypeArguments="x:String">[Path.Combine(Environment.CurrentDirectory,in_DonalodXmlLocalPath)]</InArgument>
                           </Assign.Value>
                         </Assign>
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="486,141" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;SFTP Folder Path: &quot;+in_SftpOutFoldPath]" />
-                        <p:DownloadFiles ContinueOnError="False" Create="False" DisplayName="Download files" sap:VirtualizedContainerService.HintSize="486,138" sap2010:WorkflowViewState.IdRef="DownloadFiles_1" LocalPath="[XmlLocalPath]" Overwrite="True" Recursive="False" RemotePath="[in_SftpOutFoldPath]" />
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="486,141" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Xml downloaed to local path:&quot;+XmlLocalPath]" />
-                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Archive_XMLFiles.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="486,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="XML Processing\Archive_XMLFiles.xaml">
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;SFTP Folder Path: &quot;+in_SftpOutFoldPath]" />
+                        <p:DownloadFiles ContinueOnError="False" Create="False" DisplayName="Download files" sap:VirtualizedContainerService.HintSize="434,138" sap2010:WorkflowViewState.IdRef="DownloadFiles_1" LocalPath="[XmlLocalPath]" Overwrite="True" Recursive="False" RemotePath="[in_SftpOutFoldPath]" />
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Xml downloaed to local path:&quot;+XmlLocalPath]" />
+                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Archive_XMLFiles.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="XML Processing\Archive_XMLFiles.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
                             <InArgument x:TypeArguments="x:String" x:Key="in_LocalOutFold">[in_LocalOutFold]</InArgument>
                             <InArgument x:TypeArguments="x:String" x:Key="in_ArchivalPath">[in_ArchivalPath]</InArgument>
                           </ui:InvokeWorkflowFile.Arguments>
                         </ui:InvokeWorkflowFile>
-                        <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="486,303" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-                          <ui:CommentOut.Body>
-                            <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="450,224" sap2010:WorkflowViewState.IdRef="Sequence_11">
-                              <sap:WorkflowViewStateService.ViewState>
-                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                </scg:Dictionary>
-                              </sap:WorkflowViewStateService.ViewState>
-                              <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="XML Processing\Delete_XML_fromSFTP.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="388,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="XML Processing\Delete_XML_fromSFTP.xaml">
-                                <ui:InvokeWorkflowFile.Arguments>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_HostName">[in_HostName]</InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_Port">[in_Port]</InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_SftpOutFoldPath">[in_SftpOutFoldPath]</InArgument>
-                                  <InArgument x:TypeArguments="x:String" x:Key="in_UserName">[UserName]</InArgument>
-                                  <InArgument x:TypeArguments="ss:SecureString" x:Key="in_PassWord">[PassWord]</InArgument>
-                                </ui:InvokeWorkflowFile.Arguments>
-                              </ui:InvokeWorkflowFile>
-                            </Sequence>
-                          </ui:CommentOut.Body>
-                        </ui:CommentOut>
+                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="XML Processing\Delete_XML_fromSFTP.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="XML Processing\Delete_XML_fromSFTP.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_HostName">[in_HostName]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_Port">[in_Port]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_SftpOutFoldPath">[in_SftpOutFoldPath]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_UserName">[UserName]</InArgument>
+                            <InArgument x:TypeArguments="ss:SecureString" x:Key="in_PassWord">[PassWord]</InArgument>
+                          </ui:InvokeWorkflowFile.Arguments>
+                        </ui:InvokeWorkflowFile>
                       </Sequence>
                     </If.Then>
                     <If.Else>

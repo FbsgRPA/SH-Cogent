@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<Invoice RUID="CD#EEKB8D71B58.1126867503738030093">
+<Invoice RUID="CD#EEKB8D71B58.1126867503738030068">
 	<AlternativePayee/>
 	<AmountDueForPayment>0</AmountDueForPayment>
 	<Assignment/>
@@ -27,11 +27,11 @@
 18/12/2023 14:46:25 - Invoice reviewed by Ms  Huili Shen: approved.
 18/12/2023 14:41:24 - Forwarded for review by Ms Yaqi Zhang: Invoice verified. submitting for approval.
 </History>
-	<InvoiceAmount>550</InvoiceAmount>
+	<InvoiceAmount>330</InvoiceAmount>
 	<InvoiceCurrency>SGD</InvoiceCurrency>
-	<InvoiceDate>2023-11-23</InvoiceDate>
+	<InvoiceDate>2024-01-01</InvoiceDate>
 	<InvoiceDescription/>
-	<InvoiceNumber>SI/INV-9017266</InvoiceNumber>
+	<InvoiceNumber>SI/INV-9017268</InvoiceNumber>
 	<InvoicePeriodEndDate/>
 	<InvoicePeriodStartDate/>
 	<InvoiceReferenceNumber/>
@@ -43,7 +43,7 @@
 	<LocalTaxAmount>15.6</LocalTaxAmount>
 	<ManualLink>0</ManualLink>
 	<NetAmount>195</NetAmount>
-	<OrderNumber>4662000041</OrderNumber>
+	<OrderNumber>4662000068</OrderNumber>
 	<PaymentApprovalStatus>Not requested</PaymentApprovalStatus>
 	<PaymentTerms/>
 	<PostingDate>2023-12-18</PostingDate>
@@ -106,11 +106,11 @@
 	<LineItems>
 		<item>
 			<AllowanceChargeCode/>
-			<Amount>550</Amount>
+			<Amount>66</Amount>
 			<Assignment/>
 			<BusinessArea/>
 			<CCDescription>SG82DHUBA</CCDescription>
-			<CostCenter>SG77WHWHA</CostCenter>
+			<CostCenter>SG88DHUBC</CostCenter>
 			<DeliveryNote/>
 			<Description>WHITE SAFETY HELMET NO STRAP</Description>
 			<GLAccount>4101190431</GLAccount>
@@ -122,7 +122,89 @@
 			<ItemNumber>10</ItemNumber>
 			<LineType>PO</LineType>
 			<OrderNumber>2600040071</OrderNumber>
-			<Quantity>55</Quantity>
+			<Quantity>1</Quantity>
+			<TaxAmount>0</TaxAmount>
+			<TaxCode>P5</TaxCode>
+			<TaxJurisdiction/>
+			<TaxRate>8</TaxRate>
+			<Z_BusinessArea/>
+			<Z_CodingBlock/>
+			<Z_VehicleNumber/>
+		</item>
+		
+		<item>
+			<AllowanceChargeCode/>
+			<Amount>77</Amount>
+			<Assignment/>
+			<BusinessArea/>
+			<CCDescription>SG82DHUBA</CCDescription>
+			<CostCenter>SG88DHUBC</CostCenter>
+			<DeliveryNote/>
+			<Description>WHITE SAFETY HELMET NO STRAP</Description>
+			<GLAccount>4101190431</GLAccount>
+			<GLDescription>LOGISTICS OP COST-OTHER SERVICE FEES-GROUP-FCL- IN</GLDescription>
+			<GoodsReceipt/>
+			<InternalOrder/>
+			<InvoiceLinePeriodEndDate/>
+			<InvoiceLinePeriodStartDate/>
+			<ItemNumber>20</ItemNumber>
+			<LineType>PO</LineType>
+			<OrderNumber>2600040071</OrderNumber>
+			<Quantity>1</Quantity>
+			<TaxAmount>0</TaxAmount>
+			<TaxCode>P5</TaxCode>
+			<TaxJurisdiction/>
+			<TaxRate>8</TaxRate>
+			<Z_BusinessArea/>
+			<Z_CodingBlock/>
+			<Z_VehicleNumber/>
+		</item>
+		<item>
+			<AllowanceChargeCode/>
+			<Amount>88</Amount>
+			<Assignment/>
+			<BusinessArea/>
+			<CCDescription>SG82DHUBA</CCDescription>
+			<CostCenter>SG88DHUBC</CostCenter>
+			<DeliveryNote/>
+			<Description>WHITE SAFETY HELMET NO STRAP</Description>
+			<GLAccount>4101190431</GLAccount>
+			<GLDescription>LOGISTICS OP COST-OTHER SERVICE FEES-GROUP-FCL- IN</GLDescription>
+			<GoodsReceipt/>
+			<InternalOrder/>
+			<InvoiceLinePeriodEndDate/>
+			<InvoiceLinePeriodStartDate/>
+			<ItemNumber>30</ItemNumber>
+			<LineType>PO</LineType>
+			<OrderNumber>2600040071</OrderNumber>
+			<Quantity>1</Quantity>
+			<TaxAmount>0</TaxAmount>
+			<TaxCode>P5</TaxCode>
+			<TaxJurisdiction/>
+			<TaxRate>8</TaxRate>
+			<Z_BusinessArea/>
+			<Z_CodingBlock/>
+			<Z_VehicleNumber/>
+		</item>
+		<item>
+			<AllowanceChargeCode/>
+			<Amount>99</Amount>
+			<Assignment/>
+			<BusinessArea/>
+			<CCDescription>SG82DHUBA</CCDescription>
+			<CostCenter>SG88DHUBC</CostCenter>
+			<DeliveryNote/>
+			<Description>WHITE SAFETY HELMET NO STRAP</Description>
+			<GLAccount>4101190431</GLAccount>
+			<GLDescription>LOGISTICS OP COST-OTHER SERVICE FEES-GROUP-FCL- IN</GLDescription>
+			<GoodsReceipt/>
+			<InternalOrder/>
+			<InvoiceLinePeriodEndDate/>
+			<InvoiceLinePeriodStartDate/>
+			<ItemNumber>40</ItemNumber>
+			<LineType>PO</LineType>
+			<OrderNumber>2600040071</OrderNumber>
+			<Quantity>1</Quantity>
 			<TaxAmount>0</TaxAmount>
 			<TaxCode>P5</TaxCode>
 			<TaxJurisdiction/>
