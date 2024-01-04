@@ -13,7 +13,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>734,3452</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1234,3452</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetFile_FromSFTP_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -194,7 +194,7 @@
                         </Assign>
                         <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;SFTP Folder Path: &quot;+in_SftpOutFoldPath]" />
                         <p:DownloadFiles ContinueOnError="False" Create="False" DisplayName="Download files" sap:VirtualizedContainerService.HintSize="434,138" sap2010:WorkflowViewState.IdRef="DownloadFiles_1" LocalPath="[XmlLocalPath]" Overwrite="True" Recursive="False" RemotePath="[in_SftpOutFoldPath]" />
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Xml downloaed to local path:&quot;+XmlLocalPath]" />
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,141" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Xml downloaded to local path:&quot;+XmlLocalPath]" />
                         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Archive_XMLFiles.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="XML Processing\Archive_XMLFiles.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
                             <InArgument x:TypeArguments="x:String" x:Key="in_LocalOutFold">[in_LocalOutFold]</InArgument>

@@ -19,7 +19,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>712,1270</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1234,1270</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>SetTransactionStatus_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="52">
@@ -141,7 +141,7 @@
               <av:PointCollection x:Key="ConnectorLocation">110,624.6 110,654.6 210,654.6 210,715.6</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence sap2010:Annotation.AnnotationText="If the transaction item is processed without any exception, its status is updated as Successful." DisplayName="Success" sap:VirtualizedContainerService.HintSize="558,1758" sap2010:WorkflowViewState.IdRef="Sequence_11">
+          <Sequence sap2010:Annotation.AnnotationText="If the transaction item is processed without any exception, its status is updated as Successful." DisplayName="Success" sap:VirtualizedContainerService.HintSize="200,153" sap2010:WorkflowViewState.IdRef="Sequence_11">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -149,7 +149,7 @@
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <Sequence sap2010:Annotation.AnnotationText="Includes custom log fields to the log message.&#xA;They are removed after logging to prevent duplicated status messages about a single transaction." DisplayName="Log Success with additional logging fields" sap:VirtualizedContainerService.HintSize="496,1616" sap2010:WorkflowViewState.IdRef="Sequence_10">
+            <Sequence sap2010:Annotation.AnnotationText="Includes custom log fields to the log message.&#xA;They are removed after logging to prevent duplicated status messages about a single transaction." DisplayName="Log Success with additional logging fields" sap:VirtualizedContainerService.HintSize="496,1952" sap2010:WorkflowViewState.IdRef="Sequence_10">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -157,7 +157,7 @@
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Assign DisplayName="Success Status" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_13">
+              <Assign DisplayName="Success Status" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_13">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:Object">[in_TransactionItem("Status")]</OutArgument>
                 </Assign.To>
@@ -165,7 +165,7 @@
                   <InArgument x:TypeArguments="x:Object">["Success"]</InArgument>
                 </Assign.Value>
               </Assign>
-              <Assign DisplayName="No Exception" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_14">
+              <Assign DisplayName="No Exception" sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_14">
                 <Assign.To>
                   <OutArgument x:TypeArguments="x:Object">[in_TransactionItem("Exception If Any")]</OutArgument>
                 </Assign.To>
@@ -173,14 +173,15 @@
                   <InArgument x:TypeArguments="x:Object">[""]</InArgument>
                 </Assign.Value>
               </Assign>
-              <If Condition="[in_TransactionItem(&quot;Invoice Type&quot;).ToString.ToLower.Equals(in_Config(&quot;Inv_Type_Po_Invoices&quot;).ToString.ToLower) = true]" DisplayName="If Non Po Invoice Found" sap:VirtualizedContainerService.HintSize="434,765" sap2010:WorkflowViewState.IdRef="If_1">
+              <If Condition="[in_TransactionItem(&quot;Invoice Type&quot;).ToString.ToLower.Equals(in_Config(&quot;Inv_Type_Po_Invoices&quot;).ToString.ToLower) = true]" DisplayName="If Non Po Invoice Found" sap:VirtualizedContainerService.HintSize="434,1099" sap2010:WorkflowViewState.IdRef="If_1">
                 <If.Then>
-                  <Sequence sap:VirtualizedContainerService.HintSize="376,354" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                  <Sequence sap:VirtualizedContainerService.HintSize="376,688" sap2010:WorkflowViewState.IdRef="Sequence_18">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_21" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Updating status for Po Invoice&quot;]" />
                     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="XML Processing\Generate_AcknowledgeXML.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_14" UnSafe="False" WorkflowFileName="XML Processing\Generate_AcknowledgeXML.xaml">
                       <ui:InvokeWorkflowFile.Arguments>
                         <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
@@ -200,6 +201,16 @@
                         <InArgument x:TypeArguments="x:String" x:Key="in_PoTypeName">[in_Config("Inv_Type_Po_Invoices").ToString]</InArgument>
                         <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_PO_Table">[in_dt_PO_Table]</InArgument>
                         <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_Non_POTable">[in_dt_Non_POTable]</InArgument>
+                      </ui:InvokeWorkflowFile.Arguments>
+                    </ui:InvokeWorkflowFile>
+                    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Reusable Module\Delete_localXML.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_17" UnSafe="False" WorkflowFileName="Reusable Module\Delete_localXML.xaml">
+                      <ui:InvokeWorkflowFile.Arguments>
+                        <InArgument x:TypeArguments="sd:DataRow" x:Key="in_TransactionItem">
+                          <VisualBasicValue x:TypeArguments="sd:DataRow" ExpressionText="in_TransactionItem" />
+                        </InArgument>
+                        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+                          <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+                        </InArgument>
                       </ui:InvokeWorkflowFile.Arguments>
                     </ui:InvokeWorkflowFile>
                   </Sequence>
@@ -324,7 +335,7 @@
                     <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Sequence sap2010:Annotation.AnnotationText="Includes custom log fields to the log message.&#xA;They are removed after logging to prevent duplicated status messages about a single transaction." DisplayName="Log business exception with additional logging fields" sap:VirtualizedContainerService.HintSize="496,1119" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                <Sequence sap2010:Annotation.AnnotationText="Includes custom log fields to the log message.&#xA;They are removed after logging to prevent duplicated status messages about a single transaction." DisplayName="Log business exception with additional logging fields" sap:VirtualizedContainerService.HintSize="496,1952" sap2010:WorkflowViewState.IdRef="Sequence_13">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -348,25 +359,53 @@
                       <InArgument x:TypeArguments="x:Object">[in_BusinessException.Message]</InArgument>
                     </Assign.Value>
                   </Assign>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="XML Processing\Generate_AcknowledgeXML.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" UnSafe="False" WorkflowFileName="XML Processing\Generate_AcknowledgeXML.xaml">
-                    <ui:InvokeWorkflowFile.Arguments>
-                      <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-                      <InArgument x:TypeArguments="x:Boolean" x:Key="in_Is_Success">False</InArgument>
-                      <InArgument x:TypeArguments="sd:DataRow" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_SysBRExceptionMessage">[in_BusinessException.Message]</InArgument>
-                    </ui:InvokeWorkflowFile.Arguments>
-                  </ui:InvokeWorkflowFile>
-                  <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Tracker\Update_StatusTracker.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="Tracker\Update_StatusTracker.xaml">
-                    <ui:InvokeWorkflowFile.Arguments>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_StatusTrackerPath">[in_StatusTrackerPath]</InArgument>
-                      <InOutArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_PoStatusTracker">[in_dt_PoStatusTracker]</InOutArgument>
-                      <InOutArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_NonPoStatusTracker">[in_dt_NonPoStatusTracker]</InOutArgument>
-                      <InArgument x:TypeArguments="sd:DataRow" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-                      <InArgument x:TypeArguments="x:String" x:Key="in_PoTypeName">[in_Config("Inv_Type_Po_Invoices").ToString]</InArgument>
-                      <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_PO_Table">[in_dt_PO_Table]</InArgument>
-                      <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_Non_POTable">[in_dt_Non_POTable]</InArgument>
-                    </ui:InvokeWorkflowFile.Arguments>
-                  </ui:InvokeWorkflowFile>
+                  <If Condition="[in_TransactionItem(&quot;Invoice Type&quot;).ToString.ToLower.Equals(in_Config(&quot;Inv_Type_Po_Invoices&quot;).ToString.ToLower) = true]" DisplayName="If PO Invoices" sap:VirtualizedContainerService.HintSize="434,1099" sap2010:WorkflowViewState.IdRef="If_2">
+                    <If.Then>
+                      <Sequence sap:VirtualizedContainerService.HintSize="376,688" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_19" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Updating status for Po Invoice&quot;]" />
+                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="XML Processing\Generate_AcknowledgeXML.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_15" UnSafe="False" WorkflowFileName="XML Processing\Generate_AcknowledgeXML.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                            <InArgument x:TypeArguments="x:Boolean" x:Key="in_Is_Success">False</InArgument>
+                            <InArgument x:TypeArguments="sd:DataRow" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_SysBRExceptionMessage">[in_BusinessException.Message]</InArgument>
+                          </ui:InvokeWorkflowFile.Arguments>
+                        </ui:InvokeWorkflowFile>
+                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Tracker\Update_StatusTracker.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_12" UnSafe="False" WorkflowFileName="Tracker\Update_StatusTracker.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_StatusTrackerPath">[in_StatusTrackerPath]</InArgument>
+                            <InOutArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_PoStatusTracker">[in_dt_PoStatusTracker]</InOutArgument>
+                            <InOutArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_NonPoStatusTracker">[in_dt_NonPoStatusTracker]</InOutArgument>
+                            <InArgument x:TypeArguments="sd:DataRow" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
+                            <InArgument x:TypeArguments="x:String" x:Key="in_PoTypeName">[in_Config("Inv_Type_Po_Invoices").ToString]</InArgument>
+                            <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_PO_Table">[in_dt_PO_Table]</InArgument>
+                            <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_Non_POTable">[in_dt_Non_POTable]</InArgument>
+                          </ui:InvokeWorkflowFile.Arguments>
+                        </ui:InvokeWorkflowFile>
+                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Reusable Module\Delete_localXML.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_18" UnSafe="False" WorkflowFileName="Reusable Module\Delete_localXML.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <InArgument x:TypeArguments="sd:DataRow" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
+                            <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                          </ui:InvokeWorkflowFile.Arguments>
+                        </ui:InvokeWorkflowFile>
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence sap:VirtualizedContainerService.HintSize="376,229" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_20" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;In Set Transactions status for  Non PO Invoices&quot;]" />
+                      </Sequence>
+                    </If.Else>
+                  </If>
                   <ui:AddLogFields DisplayName="Add transaction log fields (Business Exception)" sap:VirtualizedContainerService.HintSize="434,90" sap2010:WorkflowViewState.IdRef="AddLogFields_5">
                     <ui:AddLogFields.Fields>
                       <InArgument x:TypeArguments="x:String" x:Key="logF_TransactionStatus">BusinessException</InArgument>
@@ -403,7 +442,7 @@
                   <av:Size x:Key="ShapeSize">200,168</av:Size>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence sap2010:Annotation.AnnotationText="If a system exception occurs during the process, the transaction item's status is updated as Failed (Exception Type: Application)." DisplayName="System Exception" sap:VirtualizedContainerService.HintSize="200,168" sap2010:WorkflowViewState.IdRef="Sequence_17">
+              <Sequence sap2010:Annotation.AnnotationText="If a system exception occurs during the process, the transaction item's status is updated as Failed (Exception Type: Application)." DisplayName="System Exception" sap:VirtualizedContainerService.HintSize="622,3210" sap2010:WorkflowViewState.IdRef="Sequence_17">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:Boolean" Name="QueueRetry" />
                   <Variable x:TypeArguments="x:String" Name="ScreenshotPath" />
@@ -432,25 +471,53 @@
                     <InArgument x:TypeArguments="x:Object">[in_SystemException.Message]</InArgument>
                   </Assign.Value>
                 </Assign>
-                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="XML Processing\Generate_AcknowledgeXML.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="560,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_16" UnSafe="False" WorkflowFileName="XML Processing\Generate_AcknowledgeXML.xaml">
-                  <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
-                    <InArgument x:TypeArguments="x:Boolean" x:Key="in_Is_Success">False</InArgument>
-                    <InArgument x:TypeArguments="sd:DataRow" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_SysBRExceptionMessage">[in_SystemException.Message]</InArgument>
-                  </ui:InvokeWorkflowFile.Arguments>
-                </ui:InvokeWorkflowFile>
-                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Tracker\Update_StatusTracker.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="560,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="Tracker\Update_StatusTracker.xaml">
-                  <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_StatusTrackerPath">[in_StatusTrackerPath]</InArgument>
-                    <InOutArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_PoStatusTracker">[in_dt_PoStatusTracker]</InOutArgument>
-                    <InOutArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_NonPoStatusTracker">[in_dt_NonPoStatusTracker]</InOutArgument>
-                    <InArgument x:TypeArguments="sd:DataRow" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_PoTypeName">[in_Config("Inv_Type_Po_Invoices").ToString]</InArgument>
-                    <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_PO_Table">[in_dt_PO_Table]</InArgument>
-                    <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_Non_POTable">[in_dt_Non_POTable]</InArgument>
-                  </ui:InvokeWorkflowFile.Arguments>
-                </ui:InvokeWorkflowFile>
+                <If Condition="[in_TransactionItem(&quot;Invoice Type&quot;).ToString.ToLower.Equals(in_Config(&quot;Inv_Type_Po_Invoices&quot;).ToString.ToLower) = true]" DisplayName="If Po Invoices" sap:VirtualizedContainerService.HintSize="560,1099" sap2010:WorkflowViewState.IdRef="If_3">
+                  <If.Then>
+                    <Sequence sap:VirtualizedContainerService.HintSize="376,688" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_22" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Updating status for Po Invoice&quot;]" />
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="XML Processing\Generate_AcknowledgeXML.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_16" UnSafe="False" WorkflowFileName="XML Processing\Generate_AcknowledgeXML.xaml">
+                        <ui:InvokeWorkflowFile.Arguments>
+                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                          <InArgument x:TypeArguments="x:Boolean" x:Key="in_Is_Success">False</InArgument>
+                          <InArgument x:TypeArguments="sd:DataRow" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_SysBRExceptionMessage">[in_SystemException.Message]</InArgument>
+                        </ui:InvokeWorkflowFile.Arguments>
+                      </ui:InvokeWorkflowFile>
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Tracker\Update_StatusTracker.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_13" UnSafe="False" WorkflowFileName="Tracker\Update_StatusTracker.xaml">
+                        <ui:InvokeWorkflowFile.Arguments>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_StatusTrackerPath">[in_StatusTrackerPath]</InArgument>
+                          <InOutArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_PoStatusTracker">[in_dt_PoStatusTracker]</InOutArgument>
+                          <InOutArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_NonPoStatusTracker">[in_dt_NonPoStatusTracker]</InOutArgument>
+                          <InArgument x:TypeArguments="sd:DataRow" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_PoTypeName">[in_Config("Inv_Type_Po_Invoices").ToString]</InArgument>
+                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_PO_Table">[in_dt_PO_Table]</InArgument>
+                          <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dt_Non_POTable">[in_dt_Non_POTable]</InArgument>
+                        </ui:InvokeWorkflowFile.Arguments>
+                      </ui:InvokeWorkflowFile>
+                      <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Reusable Module\Delete_localXML.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_19" UnSafe="False" WorkflowFileName="Reusable Module\Delete_localXML.xaml">
+                        <ui:InvokeWorkflowFile.Arguments>
+                          <InArgument x:TypeArguments="sd:DataRow" x:Key="in_TransactionItem">[in_TransactionItem]</InArgument>
+                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
+                        </ui:InvokeWorkflowFile.Arguments>
+                      </ui:InvokeWorkflowFile>
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence sap:VirtualizedContainerService.HintSize="376,229" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,141" sap2010:WorkflowViewState.IdRef="LogMessage_23" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;In Set Transactions status for  Non PO Invoices&quot;]" />
+                    </Sequence>
+                  </If.Else>
+                </If>
                 <Assign DisplayName="Assign QueryRetry" sap:VirtualizedContainerService.HintSize="560,82" sap2010:WorkflowViewState.IdRef="Assign_10">
                   <Assign.To>
                     <OutArgument x:TypeArguments="x:Boolean">[QueueRetry]</OutArgument>

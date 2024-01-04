@@ -7,7 +7,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1234,3380</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1234,3659</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Check_Errorlist_PostData_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -90,19 +90,19 @@
       <AssemblyReference>UiPath.Platform</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Check_Errorlist_PostData" sap:VirtualizedContainerService.HintSize="744,3315" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Check_Errorlist_PostData" sap:VirtualizedContainerService.HintSize="744,3594" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Attach Window" sap:VirtualizedContainerService.HintSize="682,3204" sap2010:WorkflowViewState.IdRef="WindowScope_1" Window="[io_SAPWindow]">
+    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Attach Window" sap:VirtualizedContainerService.HintSize="682,3483" sap2010:WorkflowViewState.IdRef="WindowScope_1" Window="[io_SAPWindow]">
       <ui:WindowScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="648,3095" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="648,3374" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="ErrorCount" />
             </Sequence.Variables>
@@ -142,7 +142,7 @@
             <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="586,141" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Get Error count&quot;]" />
             <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Error number" sap:VirtualizedContainerService.HintSize="586,107" sap2010:WorkflowViewState.IdRef="GetValue_1">
               <ui:GetValue.Target>
-                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a25ed7a0-4958-4cf2-867f-9ad4d6955158" InformativeScreenshot="693b8980dc40caf9cc849480c6d500e5" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='Verification log - invoice  / 2024' idx='*' /&gt;&lt;sap id='tbar[0]/btn[17]' /&gt;">
+                <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="a25ed7a0-4958-4cf2-867f-9ad4d6955158" InformativeScreenshot="693b8980dc40caf9cc849480c6d500e5" Selector="&lt;wnd app='saplogon.exe' cls='#32770' title='Verification log - invoice *' idx='*' /&gt;&lt;sap id='tbar[0]/btn[17]' /&gt;">
                   <ui:Target.TimeoutMS>
                     <InArgument x:TypeArguments="x:Int32" />
                   </ui:Target.TimeoutMS>
@@ -155,9 +155,9 @@
                 <OutArgument x:TypeArguments="x:String">[ErrorCount]</OutArgument>
               </ui:GetValue.Value>
             </ui:GetValue>
-            <If Condition="[ErrorCount.Equals(&quot;0&quot;)]" DisplayName="If Error Count is zero" sap:VirtualizedContainerService.HintSize="586,2175" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[ErrorCount.Equals(&quot;0&quot;)]" DisplayName="If Error Count is zero" sap:VirtualizedContainerService.HintSize="586,2454" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
-                <Sequence sap:VirtualizedContainerService.HintSize="552,1374" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                <Sequence sap:VirtualizedContainerService.HintSize="552,2272" sap2010:WorkflowViewState.IdRef="Sequence_3">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Name="Statusmsg" />
                     <Variable x:TypeArguments="x:String" Default="Document No." Name="DocuNoKeyword" />
@@ -168,7 +168,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="510,141" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="[UiPath.Core.Activities.LogLevel.Info]" Message="[&quot;Error count is zero&quot;]" />
-                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click on Cancel" sap:VirtualizedContainerService.HintSize="510,107" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click on Cancel" sap:VirtualizedContainerService.HintSize="510,107" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                     <ui:Click.CursorPosition>
                       <ui:CursorPosition Position="Center">
                         <ui:CursorPosition.OffsetX>
@@ -229,7 +229,7 @@
                       </ui:Target>
                     </ucas:ReadStatusbar.Target>
                   </ucas:ReadStatusbar>
-                  <If Condition="[Statusmsg.ToLower.Trim.Contains(DocuNoKeyword.ToLower.Trim)]" DisplayName="If Status Message Contains Doc Num" sap:VirtualizedContainerService.HintSize="510,352" sap2010:WorkflowViewState.IdRef="If_3">
+                  <If Condition="[Statusmsg.ToLower.Trim.Contains(DocuNoKeyword.ToLower.Trim)]" DisplayName="If Status Message Contains Doc Num" sap:VirtualizedContainerService.HintSize="510,1250" sap2010:WorkflowViewState.IdRef="If_3">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -354,7 +354,7 @@
                       <OutArgument x:TypeArguments="x:String">[ErrorMessage]</OutArgument>
                     </ui:GetValue.Value>
                   </ui:GetValue>
-                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click on Cancel" sap:VirtualizedContainerService.HintSize="334,107" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
+                  <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click on Cancel" sap:VirtualizedContainerService.HintSize="334,107" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                     <ui:Click.CursorPosition>
                       <ui:CursorPosition Position="Center">
                         <ui:CursorPosition.OffsetX>

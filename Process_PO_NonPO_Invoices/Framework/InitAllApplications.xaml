@@ -12,7 +12,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1234,1751</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1234,1598</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Initialization_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -110,7 +110,7 @@
       <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="472,1686" sap2010:WorkflowViewState.IdRef="Sequence_9">
+  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="472,1533" sap2010:WorkflowViewState.IdRef="Sequence_9">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -128,37 +128,6 @@
         <OutArgument x:TypeArguments="x:String" x:Key="out_StatusTrackerPath">[out_StatusTrackerPath]</OutArgument>
         <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_PoStatusTracker">[out_dt_PoStatusTracker]</OutArgument>
         <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_dt_NonPOStatusTracker">[out_dt_NonPOStatusTracker]</OutArgument>
-      </ui:InvokeWorkflowFile.Arguments>
-    </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="DownloadXMLFile_FromSFTPToLocal.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="410,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="XML Processing\DownloadXMLFile_FromSFTPToLocal.xaml">
-      <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_HostName">
-          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SFTP_Host&quot;).ToString" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_Port">
-          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SFTP_Port&quot;).ToString" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_SftpOutFoldPath">
-          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SFTPPathOut&quot;).ToString" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_ExcpSftpFoldMissing">
-          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SFTPFolderMissing&quot;).ToString" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_DonalodXmlLocalPath">
-          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;DownloadXmlLocalPath&quot;).ToString" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_LocalOutFold">
-          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;InputXmlLocalPath&quot;).ToString" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_ArchivalPath">
-          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;XMLArchivalFolder&quot;).ToString" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_ExcpNoXML">
-          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;ExcpMsg_NoXMLFound&quot;).ToString" />
-        </InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="in_SftpCredName">
-          <VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_Config(&quot;SFTP_Cred&quot;).ToString" />
-        </InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="XML Processing\Read_XML_Files.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="410,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="XML Processing\Read_XML_Files.xaml">
